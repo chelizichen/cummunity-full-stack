@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.OwnerMapper">
+
+    <resultMap type="com.example.project.pojo.Owner" id="Owner_Mapper">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="own_permission" jdbcType="VARCHAR" property="Permission"/>
+        <result column="own_community" jdbcType="VARCHAR" property="Community"/>
+        <result column="own_cell" jdbcType="VARCHAR" property="Cell"/>
+        <result column="own_door_id" jdbcType="VARCHAR" property="DoorId"/>
+        <result column="own_user_id" jdbcType="VARCHAR" property="UserId"/>
+        <result column="own_car_id" jdbcType="VARCHAR" property="CarId"/>
+        <result column="own_home_square" jdbcType="VARCHAR" property="HomeSquare"/>
+        <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
+    </resultMap>
+
+    <select id="getOwnerList"  parameterType="Sorter" resultMap="Owner_Mapper">
+        SELECT * From owner where own_community like #{keyword}  limit ${page},${size}
+    </select>
+
+
+    <insert id="addOwner"  parameterType="Owner">
+        Insert INTO owner
+            (own_permission,
+             own_community,
+             own_cell,
+             own_door_id,
+             own_user_id,
+             own_car_id,
+             own_home_square
+             ) values(#{Permission},#{Community},#{Cell},#{DoorId},#{UserId},#{CarId},#{HomeSquare})
+    </insert>
+
+    <delete id="del" parameterType="String">
+        delete from owner where id = #{id};
+    </delete>
+
+    <select id="getOne" parameterType="String" resultMap="Owner_Mapper">
+        select * from owner where id = #{id};
+    </select>
+</mapper>

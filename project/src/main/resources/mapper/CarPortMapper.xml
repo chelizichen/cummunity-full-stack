@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.CarPortMapper">
+
+    <resultMap type="com.example.project.pojo.CarPort" id="CarPort_Mapper">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="port_permission" jdbcType="VARCHAR" property="PortPermission"/>
+        <result column="port_area" jdbcType="VARCHAR" property="PortArea"/>
+        <result column="port_sum" jdbcType="VARCHAR" property="PortSum"/>
+        <result column="port_manager_id" jdbcType="VARCHAR" property="PortManagerId"/>
+        <result column="port_id" jdbcType="VARCHAR" property="PortId"/>
+        <result column="port_community_id" jdbcType="VARCHAR" property="PortCommunityId"/>
+        <result column="port_is_open" jdbcType="VARCHAR" property="PortIsOpen"/>
+        <result column="port_is_bespeak" jdbcType="VARCHAR" property="PortIsBespeak"/>
+        <result column="port_car_id" jdbcType="VARCHAR" property="PortCarId"/>
+        <result column="port_user_id" jdbcType="VARCHAR" property="PortUserId"/>
+        <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
+    </resultMap>
+
+    <select id="getCarPortList"  parameterType="Sorter" resultMap="CarPort_Mapper">
+        SELECT * From Car_Port
+        <where>
+            <choose>
+                <when test="keyword != null ">
+                    port_community_id = #{keyword}
+                </when>
+                <otherwise>
+                    limit #{page},#{size}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+
+    <!--    <select id="updateUser"  parameterMap="User" resultMap="User">-->
+    <!--        SELECT * From User where username like #{keyword} limit #{page},#{size}-->
+    <!--    </select>-->
+</mapper>

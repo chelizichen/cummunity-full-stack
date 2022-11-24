@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.UserMapper">
+
+<!--    <parameterMap  type="com.example.project.pojo.Sorter" id="Sorter">-->
+<!--        <parameter property="size" javaType="string" />-->
+<!--        <parameter property="page" javaType="string" />-->
+<!--        <parameter property="keyword" javaType="string" />-->
+<!--    </parameterMap>-->
+
+    <resultMap type="com.example.project.pojo.User" id="User_Mapper">
+        <result column="id" jdbcType="VARCHAR" property="Id"/>
+        <result column="us_name" jdbcType="VARCHAR" property="Username"/>
+        <result column="us_password" jdbcType="VARCHAR" property="Password"/>
+        <result column="us_phone" jdbcType="VARCHAR" property="Phone"/>
+        <result column="us_email" jdbcType="VARCHAR" property="Email"/>
+        <result column="us_permission" jdbcType="VARCHAR" property="Permission"/>
+        <result column="us_createTime" jdbcType="VARCHAR" property="createTime"/>
+    </resultMap>
+
+    <select id="getUserList"  parameterType="Sorter" resultMap="User_Mapper">
+        SELECT * From User where us_name like #{keyword} limit ${page},${size}
+    </select>
+
+    <insert id="addUser"  parameterType="User">
+        Insert INTO USER (us_name,us_password,us_phone,us_permission,us_email) values(#{username},#{password},#{phone},#{permission},#{email})
+    </insert>
+
+    <update id="updateUser" parameterType="User">
+        update user
+        set us_name = #{Username},
+            us_password = #{Password},
+            us_phone=#{Phone},
+            us_permission=#{Permission},
+            us_email=#{Email}
+        where id=#{id};
+    </update>
+
+    <select id="getOne" parameterType="string" resultMap="User_Mapper">
+        select * from user where id = #{id};
+    </select>
+
+    <delete id="del" parameterType="String">
+        delete from user where id= #{id};
+    </delete>
+<!--    <select id="updateUser"  parameterMap="User" resultMap="User">-->
+<!--        SELECT * From User where username like #{keyword} limit #{page},#{size}-->
+<!--    </select>-->
+</mapper>
