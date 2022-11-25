@@ -33,12 +33,15 @@ public class UserController {
     }
 
     @GetMapping("del")
-
     public Ret delUser(@RequestParam("id") String id){
         final val integer = userService.del(id);
         return Ret.Success(integer);
     }
     @GetMapping("one")
+    public Ret getOne(@RequestParam("id")String id){
+        final User one = userService.getOne(id);
+        return Ret.Success(one);
+    }
 
     @PostMapping("update")
     public Ret update(@RequestBody User user){

@@ -25,15 +25,13 @@ public class OwnerController {
         }
     }
 
+    // 管理者
     @GetMapping("list")
     public Ret getOwnerList(@RequestParam(value = "keyword",defaultValue = "")String keyword, @RequestParam(value = "page",defaultValue = "0")String page, @RequestParam(value = "size",defaultValue = "10")String size){
         final List<Owner> ownerList = ownerService.getOwnerList(keyword, page, size);
         return Ret.Success(ownerList);
     }
 
-    @PostMapping("bespeak_car")
-    public Ret bespeakCar(@RequestBody CarPort carPort){
-        return null;
-    }
+
 
 }

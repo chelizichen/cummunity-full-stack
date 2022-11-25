@@ -10,9 +10,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Servant {
     String id; // Key
-    String Permission; // 权限 2，3，4，5
-    String Community; // 服务 所在 社区
-    String Address; // 服务 所在 地址
-    String UserId; // 账户ID
-    String Desc; // 服务描述
+    String permission; // 权限 2，3，4，5
+    String community; // 服务 所在 社区
+    String address; // 服务 所在 地址
+    String userId; // 账户ID
+    String desc; // 服务描述
+    String servantType; // 服务类型
+    String status; // 服务是否已完成
+    String createTime; // 服务是否已完成
 }

@@ -7,9 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Community {
+public class Menu {
     String id;
-    String name; // 社区名字
-    String location; // 地址
+    String menuName;
+    String menuPermission;
+    String menuIsRoot;
+    String menuRootId;
+    String menuPath;
     String createTime;
 }

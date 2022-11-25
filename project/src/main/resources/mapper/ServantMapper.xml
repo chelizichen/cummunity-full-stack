@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.project.mapper.ServantMapper">
+
+    <resultMap type="com.example.project.pojo.Servant" id="Servant_Mapper">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="ser_permission" jdbcType="VARCHAR" property="permission"/>
+        <result column="ser_community" jdbcType="VARCHAR" property="community"/>
+        <result column="ser_address" jdbcType="VARCHAR" property="address"/>
+        <result column="ser_user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="ser_desc" jdbcType="VARCHAR" property="desc"/>
+        <result column="ser_servant_type" jdbcType="VARCHAR" property="servantType"/>
+        <result column="ser_status" jdbcType="VARCHAR" property="status"/>
+        <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
+    </resultMap>
+
+    <select id="getCarPortList"  parameterType="Sorter" resultMap="Servant_Mapper">
+<!--        SELECT * From Car_Port-->
+<!--        <where>-->
+<!--            <choose>-->
+<!--                <when test="keyword != null ">-->
+<!--                    port_community_id = #{keyword}-->
+<!--                </when>-->
+<!--                <otherwise>-->
+<!--                    limit #{page},#{size}-->
+<!--                </otherwise>-->
+<!--            </choose>-->
+<!--        </where>-->
+    </select>
+
+
+    <!--    <select id="updateUser"  parameterMap="User" resultMap="User">-->
+    <!--        SELECT * From User where username like #{keyword} limit #{page},#{size}-->
+    <!--    </select>-->
+</mapper>

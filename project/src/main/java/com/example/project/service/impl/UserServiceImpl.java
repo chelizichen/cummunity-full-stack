@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer updateUser(User user) {
-        if(user.Id.equals("")){
+        if(user.id.equals("")){
             return userMapper.addUser(user);
         }else {
             return userMapper.updateUser(user);

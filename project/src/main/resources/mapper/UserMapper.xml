@@ -9,12 +9,12 @@
 <!--    </parameterMap>-->
 
     <resultMap type="com.example.project.pojo.User" id="User_Mapper">
-        <result column="id" jdbcType="VARCHAR" property="Id"/>
-        <result column="us_name" jdbcType="VARCHAR" property="Username"/>
-        <result column="us_password" jdbcType="VARCHAR" property="Password"/>
-        <result column="us_phone" jdbcType="VARCHAR" property="Phone"/>
-        <result column="us_email" jdbcType="VARCHAR" property="Email"/>
-        <result column="us_permission" jdbcType="VARCHAR" property="Permission"/>
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="us_name" jdbcType="VARCHAR" property="username"/>
+        <result column="us_password" jdbcType="VARCHAR" property="password"/>
+        <result column="us_phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="us_email" jdbcType="VARCHAR" property="email"/>
+        <result column="us_permission" jdbcType="VARCHAR" property="permission"/>
         <result column="us_createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 
@@ -23,16 +23,26 @@
     </select>
 
     <insert id="addUser"  parameterType="User">
-        Insert INTO USER (us_name,us_password,us_phone,us_permission,us_email) values(#{username},#{password},#{phone},#{permission},#{email})
+        Insert INTO USER (us_name,
+                          us_password,
+                          us_phone,
+                          us_permission,
+                          us_email
+                          ) values(#{username},
+                                   #{password},
+                                   #{phone},
+                                   #{permission},
+                                   #{email}
+                                   )
     </insert>
 
     <update id="updateUser" parameterType="User">
         update user
-        set us_name = #{Username},
-            us_password = #{Password},
-            us_phone=#{Phone},
-            us_permission=#{Permission},
-            us_email=#{Email}
+        set us_name = #{username},
+            us_password = #{password},
+            us_phone=#{phone},
+            us_permission=#{permission},
+            us_email=#{email}
         where id=#{id};
     </update>
 

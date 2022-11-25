@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
-@Mapper 
+@Mapper
 @Repository
 public interface UserMapper {
     List<User> getUserList(@Param("keyword")String keyword, @Param("page")String page, @Param("size")String size);
