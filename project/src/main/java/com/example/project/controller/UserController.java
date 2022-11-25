@@ -9,6 +9,7 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
 
 /** 权限
  * 超级管理员 6 拥有所有菜单
@@ -51,6 +52,13 @@ public class UserController {
         }else {
             return Ret.Error("添加失败");
         }
+    }
+
+    @GetMapping("test")
+    public Ret test(@RequestHeader Map<String, String> headerMap){
+        System.out.println(headerMap);
+        System.out.println(headerMap.get("token"));
+        return Ret.Success("测试");
     }
 
 
