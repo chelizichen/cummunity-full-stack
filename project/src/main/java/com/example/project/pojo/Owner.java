@@ -17,12 +17,12 @@ import lombok.NoArgsConstructor;
 @Data
 public class Owner {
     String id; // Key
-    String Permission; // 权限
-    String Community; // 社区
-    String Cell; // 单元楼
-    String DoorId; // 门牌号
-    String UserId; // 账户ID
-    String CarId; // 车牌号
-    String HomeSquare; // 房间大小
+    String permission; // 权限
+    String communityId; // 社区
+    String cell; // 单元楼
+    String doorId; // 门牌号
+    String userId; // 账户ID
+    String carId; // 车牌号
+    String homeSquare; // 房间大小
     String createTime; //
 }

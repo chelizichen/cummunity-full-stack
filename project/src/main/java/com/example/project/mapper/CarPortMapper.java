@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface CarPortMapper {
     List<CarPort> getCarPortList(@Param("keyword")String keyword,@Param("page")String page,@Param("size")String size);
-
-    Integer bespeakCar(CarPort carPort);
+    List<CarPort> getPortListByCommunityId(@Param("portCommunityId")String portCommunityId);
+    Integer updateBespeak(CarPort carPort);
+    Integer updateOpen(CarPort carPort);
+    Integer insertCarPort(CarPort carPort);
 }

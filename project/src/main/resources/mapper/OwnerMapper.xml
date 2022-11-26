@@ -4,31 +4,31 @@
 
     <resultMap type="com.example.project.pojo.Owner" id="Owner_Mapper">
         <result column="id" jdbcType="VARCHAR" property="id"/>
-        <result column="own_permission" jdbcType="VARCHAR" property="Permission"/>
-        <result column="own_community" jdbcType="VARCHAR" property="Community"/>
-        <result column="own_cell" jdbcType="VARCHAR" property="Cell"/>
-        <result column="own_door_id" jdbcType="VARCHAR" property="DoorId"/>
-        <result column="own_user_id" jdbcType="VARCHAR" property="UserId"/>
-        <result column="own_car_id" jdbcType="VARCHAR" property="CarId"/>
-        <result column="own_home_square" jdbcType="VARCHAR" property="HomeSquare"/>
+        <result column="own_permission" jdbcType="VARCHAR" property="permission"/>
+        <result column="own_community_id" jdbcType="VARCHAR" property="communityId"/>
+        <result column="own_cell" jdbcType="VARCHAR" property="cell"/>
+        <result column="own_door_id" jdbcType="VARCHAR" property="doorId"/>
+        <result column="own_user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="own_car_id" jdbcType="VARCHAR" property="carId"/>
+        <result column="own_home_square" jdbcType="VARCHAR" property="homeSquare"/>
         <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 
     <select id="getOwnerList"  parameterType="Sorter" resultMap="Owner_Mapper">
-        SELECT * From owner where own_community like #{keyword}  limit ${page},${size}
+        SELECT * From owner where own_community_id = #{keyword}  limit ${page},${size}
     </select>
 
 
     <insert id="addOwner"  parameterType="Owner">
         Insert INTO owner
             (own_permission,
-             own_community,
+             own_community_id,
              own_cell,
              own_door_id,
              own_user_id,
              own_car_id,
              own_home_square
-             ) values(#{Permission},#{Community},#{Cell},#{DoorId},#{UserId},#{CarId},#{HomeSquare})
+             ) values(#{Permission},#{CommunityId},#{Cell},#{DoorId},#{UserId},#{CarId},#{HomeSquare})
     </insert>
 
     <delete id="del" parameterType="String">

@@ -33,5 +33,10 @@ public class OwnerController {
     }
 
 
+    @GetMapping("servant_list")
+    public Ret getServantList(@RequestParam("id")String ownerId){
+        return null;
+    }
+
 
 }

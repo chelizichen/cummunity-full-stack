@@ -4,35 +4,56 @@
 
     <resultMap type="com.example.project.pojo.CarPort" id="CarPort_Mapper">
         <result column="id" jdbcType="VARCHAR" property="id"/>
-        <result column="port_permission" jdbcType="VARCHAR" property="PortPermission"/>
-        <result column="port_area" jdbcType="VARCHAR" property="PortArea"/>
+        <result column="port_permission" jdbcType="VARCHAR" property="portPermission"/>
+        <result column="port_area" jdbcType="VARCHAR" property="portArea"/>
         <result column="port_sum" jdbcType="VARCHAR" property="PortSum"/>
-        <result column="port_manager_id" jdbcType="VARCHAR" property="PortManagerId"/>
-        <result column="port_id" jdbcType="VARCHAR" property="PortId"/>
-        <result column="port_community_id" jdbcType="VARCHAR" property="PortCommunityId"/>
-        <result column="port_is_open" jdbcType="VARCHAR" property="PortIsOpen"/>
-        <result column="port_is_bespeak" jdbcType="VARCHAR" property="PortIsBespeak"/>
-        <result column="port_car_id" jdbcType="VARCHAR" property="PortCarId"/>
-        <result column="port_user_id" jdbcType="VARCHAR" property="PortUserId"/>
+        <result column="port_manager_id" jdbcType="VARCHAR" property="portManagerId"/>
+        <result column="port_id" jdbcType="VARCHAR" property="portId"/>
+        <result column="port_community_id" jdbcType="VARCHAR" property="portCommunityId"/>
+        <result column="port_is_open" jdbcType="VARCHAR" property="portIsOpen"/>
+        <result column="port_is_bespeak" jdbcType="VARCHAR" property="portIsBespeak"/>
+        <result column="port_car_id" jdbcType="VARCHAR" property="portCarId"/>
+        <result column="port_user_id" jdbcType="VARCHAR" property="portUserId"/>
         <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 
     <select id="getCarPortList"  parameterType="Sorter" resultMap="CarPort_Mapper">
-        SELECT * From Car_Port
-        <where>
-            <choose>
-                <when test="keyword != null ">
-                    port_community_id = #{keyword}
-                </when>
-                <otherwise>
-                    limit #{page},#{size}
-                </otherwise>
-            </choose>
-        </where>
+        SELECT * From Car_Port;
     </select>
 
+    <select id="getPortListByCommunityId" parameterType="String" resultMap="CarPort_Mapper">
+        select * from car_port where port_community_id = #{portCommunityId};
+    </select>
 
-    <!--    <select id="updateUser"  parameterMap="User" resultMap="User">-->
-    <!--        SELECT * From User where username like #{keyword} limit #{page},#{size}-->
-    <!--    </select>-->
+    <update id="updateBespeak" parameterType="CarPort">
+        update car_port set port_is_bespeak = #{PortIsBespeak} where id = #{id}
+    </update>
+
+    <update id="updateOpen">
+        update car_port set port_is_open = #{portIsOpen} where port_community_id = #{portCommunityId} and port_area = #{portArea};
+    </update>
+
+    <insert id="insertCarPort">
+        insert into car_port (port_permission,
+                              port_area,
+                              port_sum,
+                              port_manager_id,
+                              port_id,
+                              port_community_id,
+                              port_is_open,
+                              port_is_bespeak,
+                              port_car_id,
+                              port_user_id
+                              ) values (#{PortPermission},
+                                        #{PortArea},
+                                        #{PortSum},
+                                        #{PortManagerId},
+                                        #{PortId},
+                                        #{PortCommunityId},
+                                        #{PortIsOpen},
+                                        #{PortIsBespeak},
+                                        #{PortCarId},
+                                        #{PortUserId})
+    </insert>
+
 </mapper>

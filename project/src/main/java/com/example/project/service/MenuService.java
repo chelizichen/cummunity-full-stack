@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface MenuService {
     List<Menu> getMenuList(String permission);
+    Menu getOneById(String id);
     Integer updateMenu(Menu menu);
     Integer delMenuById(String id);
-    Integer getOneById(String id);
 }

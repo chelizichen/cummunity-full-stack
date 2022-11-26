@@ -12,21 +12,42 @@
         <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 
-    <select id="getCarPortList"  parameterType="Sorter" resultMap="Menu_Mapper">
-<!--        SELECT * From Car_Port-->
-<!--        <where>-->
-<!--            <choose>-->
-<!--                <when test="keyword != null ">-->
-<!--                    port_community_id = #{keyword}-->
-<!--                </when>-->
-<!--                <otherwise>-->
-<!--                    limit #{page},#{size}-->
-<!--                </otherwise>-->
-<!--            </choose>-->
-<!--        </where>-->
+    <select id="getMenuList"  parameterType="Sorter" resultMap="Menu_Mapper">
+        SELECT * FROM menu;
     </select>
 
+    <select id="getOneById" parameterType="String">
+        SELECT * from menu where id = #{id};
+    </select>
 
+    <insert id="addMenu" parameterType="Menu" >
+        insert into menu (me_name,
+                          me_permission,
+                          me_is_root,
+                          me_root_id,
+                          me_path) values(
+                                          #{menuName},
+                                          #{menuPermission},
+                                          #{menuIsRoot},
+                                          #{menuRootId},
+                                          #{menuPath}
+                                                 )
+    </insert>
+
+    <update id="updateMenu" parameterType="Menu">
+        update menu set me_name = #{menuName},
+                        me_permission=#{menuPermission},
+                        me_is_root=#{menuiIsRoot},
+                        me_root_id=#{menuRootId},
+                        me_path=#{menuPath}
+        where id = #{id}
+    </update>
+
+    <delete id="delMenuById" parameterType="String">
+        delete
+        from menu
+        where id = #{id};
+    </delete>
     <!--    <select id="updateUser"  parameterMap="User" resultMap="User">-->
     <!--        SELECT * From User where username like #{keyword} limit #{page},#{size}-->
     <!--    </select>-->

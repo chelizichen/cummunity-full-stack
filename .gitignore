@@ -5,3 +5,7 @@ project/target
 project/HELP.md
 project/mvnw
 project/mvnw.cwd
+
+# Vue
+client/node_modules
+client/.vscode

@@ -1,7 +1,9 @@
 package com.example.project.controller;
 
 import com.example.project.config.Ret;
+import com.example.project.dto.Bespeak;
 import com.example.project.pojo.CarPort;
+import com.example.project.pojo.Servant;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -20,32 +22,38 @@ public class ServantController {
 
     // 查看车位列表
     @GetMapping("port_list")
-    public  Ret getCarPortList(){
+    public  Ret getCarPortList(@RequestParam("community_id")String communityId){
         return null;
     }
 
     // 预约车位
     @PostMapping("port_bespeak")
-    public Ret bespeakCar(@RequestBody CarPort carPort){
+    public Ret bespeakCar(@RequestBody Bespeak bespeak){
         return null;
     }
 
     // 缴纳物业费
     @PostMapping("pay_property")
-    public Ret payProperty(){
+    public Ret payProperty(@RequestBody Servant servant){
         return null;
     }
 
     // 申请投诉
     @PostMapping("post_complaint")
-    public Ret postComplaint(){
+    public Ret postComplaint(@RequestBody Servant servant){
         return null;
     }
 
     @PostMapping("post_server")
-    public Ret postServer(){
+    public Ret postServer(@RequestBody Servant servant){
         return null;
     }
 
+
+   // 申请门禁卡丢失补办
+    @PostMapping("post_card_lost")
+    public Ret postCardLost(@RequestBody Servant servant){
+        return null;
+    }
 
 }

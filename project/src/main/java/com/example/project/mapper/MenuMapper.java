@@ -9,5 +9,5 @@ public interface MenuMapper {
     Integer addMenu(Menu menu);
     Integer updateMenu(Menu menu);
     Integer delMenuById(@Param("id")String id);
-    Integer getOneById(@Param("id")String id);
+    Menu getOneById(@Param("id")String id);
 }
