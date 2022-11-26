@@ -9,3 +9,4 @@ project/mvnw.cwd
 # Vue
 client/node_modules
 client/.vscode
+client/package-lock.json

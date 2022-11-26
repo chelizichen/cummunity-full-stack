@@ -1,0 +1,3 @@
+type QueryId = {
+  id: string;
+}

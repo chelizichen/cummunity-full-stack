@@ -15,7 +15,7 @@
         <result column="us_phone" jdbcType="VARCHAR" property="phone"/>
         <result column="us_email" jdbcType="VARCHAR" property="email"/>
         <result column="us_permission" jdbcType="VARCHAR" property="permission"/>
-        <result column="us_createTime" jdbcType="VARCHAR" property="createTime"/>
+        <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 
     <select id="getUserList"  parameterType="Sorter" resultMap="User_Mapper">

@@ -12,8 +12,8 @@ public class User {
     public String username; // 真实姓名
     public String password;
     public String phone; // 使用 phone 和 password 登陆
-    public String email;
-    public String permission;
+    public String email; // 电子邮箱
+    public String permission; //权限
     public String createTime;
 }
 
