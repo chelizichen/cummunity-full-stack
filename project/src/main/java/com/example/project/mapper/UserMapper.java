@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface UserMapper {
-    List<User> getUserList(@Param("keyword")String keyword, @Param("page")String page, @Param("size")String size);
+    List<User> getUserList(@Param("keyword")String keyword, @Param("page")Number page, @Param("size")String size);
     User getOne(@Param("id") String id);
     Integer updateUser(User user);
     Integer addUser(User user);

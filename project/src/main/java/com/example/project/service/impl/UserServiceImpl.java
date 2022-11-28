@@ -17,12 +17,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUserList(String keyword, String page, String size) {
         keyword = "%" + keyword + "%";
-        return userMapper.getUserList(keyword,page,size);
+        Integer getPage = Integer.parseInt(page) - 1;
+        return userMapper.getUserList(keyword,getPage,size);
     }
 
     @Override
     public Integer updateUser(User user) {
-        if(user.id.equals("")){
+        System.out.println(user);
+        if(user.id == null){
             return userMapper.addUser(user);
         }else {
             return userMapper.updateUser(user);
