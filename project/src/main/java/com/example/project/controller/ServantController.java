@@ -4,6 +4,8 @@ import com.example.project.config.Ret;
 import com.example.project.dto.Bespeak;
 import com.example.project.pojo.CarPort;
 import com.example.project.pojo.Servant;
+import com.example.project.service.CarPortService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -20,10 +22,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ServantController {
 
+    @Autowired
+    CarPortService carPortService;
+
     // 查看车位列表
-    @GetMapping("port_list")
-    public  Ret getCarPortList(@RequestParam("community_id")String communityId){
-        return null;
+    @GetMapping("port_list_by_community_id")
+    public  Ret getCarPortListById(@RequestParam("community_id")String communityId){
+        return Ret.Success(carPortService.getCarPortListByCommunityId(communityId));
     }
 
     // 预约车位

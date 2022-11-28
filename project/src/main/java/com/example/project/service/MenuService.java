@@ -1,10 +1,11 @@
 package com.example.project.service;
 
 import com.example.project.pojo.Menu;
-import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface MenuService {
     List<Menu> getMenuList(String permission);
     Menu getOneById(String id);

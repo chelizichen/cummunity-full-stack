@@ -9,19 +9,9 @@
         <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 
-    <select id="getCarPortList"  parameterType="Sorter" resultMap="Menu_Mapper">
-<!--        SELECT * From Car_Port-->
-<!--        <where>-->
-<!--            <choose>-->
-<!--                <when test="keyword != null ">-->
-<!--                    port_community_id = #{keyword}-->
-<!--                </when>-->
-<!--                <otherwise>-->
-<!--                    limit #{page},#{size}-->
-<!--                </otherwise>-->
-<!--            </choose>-->
-<!--        </where>-->
-    </select>
+<!--    <select id="getCarPortList"  parameterType="Sorter" resultMap="Community_Mapper">-->
+
+<!--    </select>-->
 
 
     <!--    <select id="updateUser"  parameterMap="User" resultMap="User">-->

@@ -1,9 +1,13 @@
 package com.example.project.mapper;
 
 import com.example.project.pojo.Menu;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+@Mapper
+@Repository
 public interface MenuMapper {
     List<Menu> getMenuList(@Param("permission")String permission);
     Integer addMenu(Menu menu);

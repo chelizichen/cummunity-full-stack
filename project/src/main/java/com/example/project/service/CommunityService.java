@@ -1,14 +1,11 @@
 package com.example.project.service;
 
 import com.example.project.pojo.Community;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Mapper
-@Repository
+@Service
 public interface CommunityService {
     List<Community> getCommunityList(String keyword, String page,String size);
     Community getOneById(String id);

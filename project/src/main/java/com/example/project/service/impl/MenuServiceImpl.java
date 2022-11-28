@@ -4,9 +4,11 @@ import com.example.project.mapper.MenuMapper;
 import com.example.project.pojo.Menu;
 import com.example.project.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MenuServiceImpl implements MenuService {
 
     @Autowired
