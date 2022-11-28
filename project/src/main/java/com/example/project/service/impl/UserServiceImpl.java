@@ -25,7 +25,8 @@ public class UserServiceImpl implements UserService {
     public Integer updateUser(User user) {
         System.out.println(user);
         if(user.id == null){
-            return userMapper.addUser(user);
+            userMapper.addUser(user);
+            return Integer.parseInt(user.getId());
         }else {
             return userMapper.updateUser(user);
         }

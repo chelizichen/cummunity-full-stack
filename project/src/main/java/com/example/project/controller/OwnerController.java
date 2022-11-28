@@ -18,11 +18,7 @@ public class OwnerController {
     @PostMapping("update")
     public Ret updateUser(@RequestBody Owner owner){
         Integer integer = ownerService.updateOwner(owner);
-        if(integer >= 0){
-            return Ret.Success("添加成功");
-        }else {
-            return Ret.Error("添加失败");
-        }
+        return Ret.Success("添加成功");
     }
 
     // 管理者
@@ -38,5 +34,10 @@ public class OwnerController {
         return null;
     }
 
+
+    @GetMapping("del")
+    public Ret delOneById(@RequestParam("id")String id){
+        return Ret.Success(ownerService.del(id));
+    }
 
 }

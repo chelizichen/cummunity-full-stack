@@ -15,7 +15,7 @@
     </resultMap>
 
     <select id="getOwnerList"  parameterType="Sorter" resultMap="Owner_Mapper">
-        SELECT * From owner where own_community_id = #{keyword}  limit ${page},${size}
+        SELECT * From owner where own_community_id like #{keyword}  limit ${page},${size}
     </select>
 
 
@@ -28,7 +28,7 @@
              own_user_id,
              own_car_id,
              own_home_square
-             ) values(#{Permission},#{CommunityId},#{Cell},#{DoorId},#{UserId},#{CarId},#{HomeSquare})
+             ) values(#{permission},#{communityId},#{cell},#{doorId},#{userId},#{carId},#{homeSquare})
     </insert>
 
     <delete id="del" parameterType="String">

@@ -1,8 +1,8 @@
-type QueryId = {
+export type QueryId = {
   id: string;
 }
 
-type Pagination = {
+export type Pagination = {
   size: number;
   keyword: string;
   page: number;

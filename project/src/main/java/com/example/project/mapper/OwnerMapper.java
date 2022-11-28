@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface OwnerMapper {
-    List<Owner> getOwnerList(@Param("keyword")String keyword, @Param("page")String page, @Param("size")String size);
+    List<Owner> getOwnerList(@Param("keyword")String keyword, @Param("page")Integer page, @Param("size")String size);
     Integer updateOwner(Owner owner);
     Integer addOwner(Owner owner);
     Owner getOne(@Param("id") String id);

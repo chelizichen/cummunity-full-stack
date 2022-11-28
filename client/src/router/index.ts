@@ -32,10 +32,10 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
-  {
-    path: "/login",
-    component: () => import("@/pages/login/index.vue"),
-  },
+  // {
+  //   path: "/login",
+  //   component: () => import("@/pages/login/index.vue"),
+  // },
   {
     path: "/owner",
     component: () => import("@/pages/owner/index.vue"),
@@ -46,11 +46,15 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: "dashboard",
-        component: () => import("@/pages/dashboard/index.vue"),
+        component: () => import("@/pages/admin-dashboard/index.vue"),
       },
       {
         path: "user",
-        component: () => import("@/pages/user/index.vue"),
+        component: () => import("@/pages/admin-user/index.vue"),
+      },
+      {
+        path: "owner",
+        component: () => import("@/pages/admin-owner/index.vue"),
       },
     ],
   },

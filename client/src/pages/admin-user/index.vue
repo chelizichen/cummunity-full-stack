@@ -38,6 +38,7 @@
 import { onMounted, reactive,ref } from 'vue';
 import { list,del } from '../../api/user';
 import { user } from '../../type/user';
+import { Pagination } from '../../type/common.d'
 import Edit from './edit.vue'
 import _ from 'lodash'
 import { ElNotification } from 'element-plus';

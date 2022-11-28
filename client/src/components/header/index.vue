@@ -7,6 +7,7 @@
       <el-menu-item index="/home/intro">主页</el-menu-item>
       <el-menu-item index="2">用户</el-menu-item>
       <el-menu-item index="/admin">管理员</el-menu-item>
+      <el-menu-item index="/home/login">登陆</el-menu-item>
       <el-menu-item index="4">案例</el-menu-item>
       <el-menu-item index="5">联系我们</el-menu-item>
       <el-menu-item index="6">应用截图</el-menu-item>

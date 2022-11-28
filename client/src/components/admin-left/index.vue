@@ -1,7 +1,12 @@
 <template>
-  <h5 class="mb-2">Logo</h5>
-  <el-menu active-text-color="#ffd04b" background-color="#545c64" class="el-menu-vertical-demo" default-active="2"
+  <el-menu active-text-color="#ffd04b" background-color="gray" class="el-menu-vertical-demo" default-active="2"
     text-color="#fff" @select="handleSelect">
+    <el-menu-item index="-1">
+      <el-icon>
+        <icon-menu />
+      </el-icon>
+      <span>首页</span>
+    </el-menu-item>
     <el-sub-menu index="1">
       <template #title>
         <el-icon>
@@ -10,6 +15,7 @@
         <span>用户管理</span>
       </template>
         <el-menu-item index="user">查看用户</el-menu-item>
+        <el-menu-item index="owner">查看业主</el-menu-item>
     </el-sub-menu>
     <el-menu-item index="2">
       <el-icon>
@@ -45,7 +51,12 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 const handleSelect = (key: string, keyPath: string[]) => {
-  router.push("/admin/"+key)
+  if (key != "-1") {
+    router.push("/admin/" + key)
+    
+  } else {
+    router.replace("/home")
+  }
 }
 
 </script>

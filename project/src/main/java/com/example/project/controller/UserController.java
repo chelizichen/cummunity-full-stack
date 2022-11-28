@@ -49,12 +49,8 @@ public class UserController {
 
     @PostMapping("update")
     public Ret update(@RequestBody User user){
-        final Integer integer = userService.updateUser(user);
-        if(integer >= 0){
-            return Ret.Success("添加成功");
-        }else {
-            return Ret.Error("添加失败");
-        }
+        Integer integer = userService.updateUser(user);
+        return Ret.Success(integer);
     }
 
     @GetMapping("test")

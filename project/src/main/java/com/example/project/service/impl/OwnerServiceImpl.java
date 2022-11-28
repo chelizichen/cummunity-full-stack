@@ -19,13 +19,18 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public List<Owner> getOwnerList(String keyword, String page, String size) {
         keyword = "%" + keyword + "%";
-        return ownerMapper.getOwnerList(keyword, page, size);
+        Integer getPage = Integer.parseInt(page) - 1;
+        List<Owner> list = ownerMapper.getOwnerList(keyword, getPage, size);
+        System.out.println(list);
+        return list;
     }
 
     @Override
     public Integer updateOwner(Owner owner) {
-        if(owner.getId().equals("")){
-            return ownerMapper.addOwner(owner);
+        if(owner.getId() == null){
+            Integer integer = ownerMapper.addOwner(owner);
+            System.out.println("owner.getId()"+owner.getId());
+            return integer;
         }else {
             return ownerMapper.updateOwner(owner);
         }
