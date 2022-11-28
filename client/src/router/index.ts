@@ -1,6 +1,29 @@
-import {RouteRecord,createRouter,createWebHistory} from 'vue-router'
+import {RouteRecord,createRouter,createWebHistory, RouteRecordRaw} from 'vue-router'
 
-const routes: RouteRecord[] = []
+
+/**
+ * 判断是否有业主 token
+ */
+
+const routes: RouteRecordRaw[] = [
+  {
+    path: "/",
+    redirect: "/home",
+  },
+  {
+    path: "/home",
+    component:()=>import("@/pages/home/index.vue")
+  },
+  {
+    path: "/login",
+    component:()=>import("@/pages/login/index.vue")
+  },
+  {
+    path: "/owner",
+    component:()=>import("@/pages/owner/index.vue")
+  }
+
+]
 
 const router = createRouter({
   routes,
