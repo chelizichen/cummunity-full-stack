@@ -10,6 +10,13 @@ export function list(params:Pagination) {
   })
 }
 
+export function getOne(params:QueryId) {
+  return request({
+    url: "owner/one",
+    params
+  })
+}
+
 export function del(params: QueryId) {
   return request({
     url: "owner/del",

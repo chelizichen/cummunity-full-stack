@@ -14,6 +14,8 @@ public interface OwnerService {
     Integer updateOwner(Owner owner);
     Integer del(String id);
 
+    Owner getOneByUserId(String id);
+
     // 预约车位
     Integer bespeakCar(CarPort carPort);
 

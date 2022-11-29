@@ -2,10 +2,11 @@ package com.example.project.controller;
 
 import com.example.project.config.Ret;
 import com.example.project.pojo.CarPort;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.project.service.CarPortService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 单独给管理员
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("carport")
 @RestController
 public class CarPortController {
+
+    @Autowired
+    CarPortService carPortService;
+
     // 管理员处理预约功能
     @GetMapping("deal_bespeak")
     public Ret delBespeak(){
@@ -27,8 +32,9 @@ public class CarPortController {
     }
 
     @GetMapping("list")
-    public Ret getCarPortList(){
-        return null;
+    public Ret getCarPortList(@RequestParam(value = "keyword",defaultValue = "")String keyword, @RequestParam(value = "page",defaultValue = "0")String page, @RequestParam(value = "size",defaultValue = "10")String size){
+        final List<CarPort> carPortList = carPortService.getCarPortList(keyword, page, size);
+        return Ret.Success(carPortList);
     }
 
     @GetMapping("del")

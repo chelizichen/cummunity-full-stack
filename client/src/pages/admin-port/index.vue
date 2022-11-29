@@ -6,13 +6,16 @@
   <!-- 表格 -->
   <div>
     <el-table :data="state.list" style="width: 100%">
-      <el-table-column prop="id" label="ID" width="180" />
-      <el-table-column prop="communityId" label="社区ID" />
-      <el-table-column prop="cell" label="所属单元楼" />
-      <el-table-column prop="doorId" label="门牌号" />
-      <el-table-column prop="userId" label="用户ID" />
-      <el-table-column prop="carId" label="车牌号" />
-      <el-table-column prop="homeSquare" label="房间大小" />
+      <el-table-column prop="id" label="ID" />
+      <el-table-column prop="portPermission" label="停车所需权限" />
+      <el-table-column prop="portArea" label="停车区域" />
+      <el-table-column prop="portSum" label="停车位总量" />
+      <el-table-column prop="portManagerId" label="管理者ID" />
+      <el-table-column prop="portCommunityId" label="社区ID" />
+      <el-table-column prop="portIsOpen" label="是否打开" />
+      <el-table-column prop="portIsBespeak" label="是否被预约" />
+      <el-table-column prop="portCarId" label="车牌号" />
+      <el-table-column prop="portUserId" label="用户ID" />
       <el-table-column prop="createTime" label="创建时间" />
       <el-table-column  label="操作">
       <template #default="scope">
@@ -36,24 +39,16 @@
 </template>
 
 <script setup lang="ts">
-    // id: string;
-    // ownPermission: string;
-    // ownCommunity_id: SVGStringList;
-    // ownCell: string;
-    // ownDoorId: string;
-    // ownUserId: string;
-    // ownCarId: string;
-    // ownHomeSquare: string;
-    // createTime: Date;
+
 import { onMounted, reactive,ref } from 'vue';
-import { list,del } from '../../api/owner';
+import { list,del } from '../../api/port';
 import { Pagination } from '../../type/common.d'
 import Edit from './edit.vue'
 import _ from 'lodash'
 import { ElNotification } from 'element-plus';
-import { owner__table } from '../../type/owner';
+import { car_port__table } from '../../type/car_port';
 const state = reactive({
-  list:<Array<owner__table>>[]
+  list:<Array<car_port__table>>[]
 })
 
 const pagination = ref<Pagination>({
@@ -86,7 +81,7 @@ function handle_add() {
   dialogVal.value = {}
 }
 
-async function handle_del(item:owner__table) {
+async function handle_del(item: car_port__table) {
   const data = await del({ id: item.id })
   // @ts-ignore
   if (data.code == 0) {

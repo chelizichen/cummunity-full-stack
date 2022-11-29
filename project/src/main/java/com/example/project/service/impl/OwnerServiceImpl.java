@@ -47,6 +47,11 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
+    public Owner getOneByUserId(String id) {
+        return ownerMapper.getOneByUserId(id);
+    }
+
+    @Override
     public Integer bespeakCar(CarPort carPort) {
         return null;
     }

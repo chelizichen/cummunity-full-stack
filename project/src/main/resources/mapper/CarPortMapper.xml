@@ -6,7 +6,7 @@
         <result column="id" jdbcType="VARCHAR" property="id"/>
         <result column="port_permission" jdbcType="VARCHAR" property="portPermission"/>
         <result column="port_area" jdbcType="VARCHAR" property="portArea"/>
-        <result column="port_sum" jdbcType="VARCHAR" property="PortSum"/>
+        <result column="port_sum" jdbcType="VARCHAR" property="portSum"/>
         <result column="port_manager_id" jdbcType="VARCHAR" property="portManagerId"/>
         <result column="port_id" jdbcType="VARCHAR" property="portId"/>
         <result column="port_community_id" jdbcType="VARCHAR" property="portCommunityId"/>

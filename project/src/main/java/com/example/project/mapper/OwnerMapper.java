@@ -14,5 +14,6 @@ public interface OwnerMapper {
     Integer updateOwner(Owner owner);
     Integer addOwner(Owner owner);
     Owner getOne(@Param("id") String id);
+    Owner getOneByUserId(@Param("userId")String id);
     Integer del(@Param("id") String id);
 }

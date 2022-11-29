@@ -1,6 +1,5 @@
 export type owner__table = {
   id: string;
-  permission: string;
   communityId: string;
   cell: string;
   doorId: string;

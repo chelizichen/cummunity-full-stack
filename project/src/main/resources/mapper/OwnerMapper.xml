@@ -4,7 +4,6 @@
 
     <resultMap type="com.example.project.pojo.Owner" id="Owner_Mapper">
         <result column="id" jdbcType="VARCHAR" property="id"/>
-        <result column="own_permission" jdbcType="VARCHAR" property="permission"/>
         <result column="own_community_id" jdbcType="VARCHAR" property="communityId"/>
         <result column="own_cell" jdbcType="VARCHAR" property="cell"/>
         <result column="own_door_id" jdbcType="VARCHAR" property="doorId"/>
@@ -18,17 +17,21 @@
         SELECT * From owner where own_community_id like #{keyword}  limit ${page},${size}
     </select>
 
+    <select id="getOneByUserId" parameterType="String" resultMap="Owner_Mapper">
+        SELECT * From owner where own_user_id = #{userId}
+    </select>
+
 
     <insert id="addOwner"  parameterType="Owner">
         Insert INTO owner
-            (own_permission,
+            (
              own_community_id,
              own_cell,
              own_door_id,
              own_user_id,
              own_car_id,
              own_home_square
-             ) values(#{permission},#{communityId},#{cell},#{doorId},#{userId},#{carId},#{homeSquare})
+             ) values(#{communityId},#{cell},#{doorId},#{userId},#{carId},#{homeSquare})
     </insert>
 
     <delete id="del" parameterType="String">

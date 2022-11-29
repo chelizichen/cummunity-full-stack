@@ -2,6 +2,8 @@ package com.example.project.controller;
 
 import com.example.project.config.Ret;
 import com.example.project.pojo.Menu;
+import com.example.project.service.MenuService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,9 +17,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("menu")
 public class MenuController {
 
+    @Autowired
+    MenuService menuService;
+
     @GetMapping("list")
-    public Ret getMenuList(){
-        return null;
+    public Ret getMenuList(@RequestParam("permission")String permission){
+        return Ret.Success(menuService.getMenuList(permission));
     }
 
     @GetMapping("del")

@@ -40,4 +40,14 @@ public class OwnerController {
         return Ret.Success(ownerService.del(id));
     }
 
+    @GetMapping("one")
+    public Ret getOneById(@RequestParam("id")String id){
+        return Ret.Success(ownerService.getOne(id));
+    }
+
+    @GetMapping("oneByUserId")
+    public Ret getOneByUserId(@RequestParam("id")String id){
+        return Ret.Success(ownerService.getOneByUserId(id));
+    }
+
 }

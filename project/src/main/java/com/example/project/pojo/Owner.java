@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class Owner {
     String id; // Key
-    String permission; // 权限
     String communityId; // 社区
     String cell; // 单元楼
     String doorId; // 门牌号

@@ -7,12 +7,11 @@
   <div>
     <el-table :data="state.list" style="width: 100%">
       <el-table-column prop="id" label="ID" width="180" />
-      <el-table-column prop="communityId" label="社区ID" />
-      <el-table-column prop="cell" label="所属单元楼" />
-      <el-table-column prop="doorId" label="门牌号" />
-      <el-table-column prop="userId" label="用户ID" />
-      <el-table-column prop="carId" label="车牌号" />
-      <el-table-column prop="homeSquare" label="房间大小" />
+      <el-table-column prop="menuName" label="权限" width="180" />
+      <el-table-column prop="menuPermission" label="菜单权限" />
+      <el-table-column prop="menuIsRoot" label="是否为外层菜单" />
+      <el-table-column prop="menuRootId" label="外层菜单ID" />
+      <el-table-column prop="menuPath" label="门牌号" />
       <el-table-column prop="createTime" label="创建时间" />
       <el-table-column  label="操作">
       <template #default="scope">
@@ -36,30 +35,16 @@
 </template>
 
 <script setup lang="ts">
-    // id: string;
-    // ownPermission: string;
-    // ownCommunity_id: SVGStringList;
-    // ownCell: string;
-    // ownDoorId: string;
-    // ownUserId: string;
-    // ownCarId: string;
-    // ownHomeSquare: string;
-    // createTime: Date;
+
 import { onMounted, reactive,ref } from 'vue';
-import { list,del } from '../../api/owner';
-import { Pagination } from '../../type/common.d'
+import { del,list } from '../../api/menu';
 import Edit from './edit.vue'
 import _ from 'lodash'
 import { ElNotification } from 'element-plus';
-import { owner__table } from '../../type/owner';
-const state = reactive({
-  list:<Array<owner__table>>[]
-})
+import { menu__table } from '../../type/menu';
 
-const pagination = ref<Pagination>({
-  size: 10,
-  keyword: "",
-  page: 1
+const state = reactive({
+  list:<Array<menu__table>>[]
 })
 
 const dialogFormVisible = ref(false)
@@ -86,7 +71,7 @@ function handle_add() {
   dialogVal.value = {}
 }
 
-async function handle_del(item:owner__table) {
+async function handle_del(item:menu__table) {
   const data = await del({ id: item.id })
   // @ts-ignore
   if (data.code == 0) {
@@ -97,7 +82,7 @@ async function handle_del(item:owner__table) {
 }
 
 async function init() {
-  const data = await list(pagination.value)
+  const data = await list({permission:"4"})
   console.log(data);
   
   state.list = data.data

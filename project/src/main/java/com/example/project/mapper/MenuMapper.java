@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface MenuMapper {
-    List<Menu> getMenuList(@Param("permission")String permission);
+    List<Menu> getMenuList(@Param("menuPermission")String permission);
     Integer addMenu(Menu menu);
     Integer updateMenu(Menu menu);
     Integer delMenuById(@Param("id")String id);

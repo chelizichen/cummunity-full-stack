@@ -16,7 +16,9 @@ public class CarPortServiceImpl implements CarPortService {
 
     @Override
     public List<CarPort> getCarPortList(String keyword, String page, String size) {
-        return null;
+        keyword = "%" + keyword + "%";
+        Integer getPage = Integer.parseInt(page) - 1;
+        return carPortMapper.getCarPortList(keyword, getPage, size);
     }
 
     @Override

@@ -2,10 +2,13 @@
 <template>
   <el-header>
     <el-menu :default-active="activeIndex" class="menu" mode="horizontal" :ellipsis="false" @select="handleSelect">
-      <el-menu-item index="/home/intro">LOGO</el-menu-item>
+      <el-menu-item index="/home/intro">
+    <img :src="Logo"  style="width: 100%;height:50px;"/>
+      
+      </el-menu-item>
       <div class="flex-grow" />
       <el-menu-item index="/home/intro">主页</el-menu-item>
-      <el-menu-item index="2">用户</el-menu-item>
+      <el-menu-item index="/owner">用户</el-menu-item>
       <el-menu-item index="/admin">管理员</el-menu-item>
       <el-menu-item index="/home/login">登陆</el-menu-item>
       <el-menu-item index="4">案例</el-menu-item>
@@ -18,7 +21,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
-
+import Logo from '/Logo.jpeg'
 const router = useRouter()
 const activeIndex = ref('1')
 const handleSelect = (key: string, keyPath: string[]) => {

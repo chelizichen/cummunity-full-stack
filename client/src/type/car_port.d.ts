@@ -3,9 +3,9 @@ export type car_port__table = {
   portPermission: string;
   portArea: string;
   portSum: string;
-  portManager_id:string;
+  portManagerId:string;
   portId: string;
-  portCommunity_id: string;
+  portCommunityId: string;
   portIsOpen: string;
   portIsBespeak: string;
   portCarId: string;
