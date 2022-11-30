@@ -26,7 +26,7 @@
     </select>
 
     <update id="updateBespeak" parameterType="CarPort">
-        update car_port set port_is_bespeak = #{PortIsBespeak} where id = #{id}
+        update car_port set port_is_bespeak = #{PortIsBespeak},port_car_id = #{PortCarId},port_user_id= #{PortUserId} where id = #{id}
     </update>
 
     <update id="updateOpen">

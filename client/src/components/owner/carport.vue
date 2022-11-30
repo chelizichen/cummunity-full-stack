@@ -3,10 +3,12 @@
     <el-card class="box-card">
       <template #header>
         <div class="card-header">
-          <span>服务列表</span>
-          <el-button class="button" text>Operation button</el-button>
+          <span>车位预约</span>
+          <el-button class="button" text>更新车位信息</el-button>
+          <el-button class="button" text>预约车位</el-button>
         </div>
       </template>
+      <PortPie :port="props.port"></PortPie>
       <!-- <div v-if="props.servant">
         <div v-for="item in props.servant" class="servant_item">
           <div>{{  item.desc  }}</div>
@@ -17,26 +19,16 @@
   </div>
 </template>
 
-<script setup lang="ts">import { car_port__table } from '../../type/car_port';
+<script setup lang="ts">
+import PortPie from '../../charts/PortPie.vue';
+import { car_port__table } from '../../type/car_port';
 
 
 // 个人服务列表
 const props = defineProps<{
-  servant: car_port__table[]
+  port: car_port__table[]
 }>()
 
-function getStatus(status: string) {
-  if (status == "0") {
-    return "待处理"
-  }
-  if (status == "1") {
-    return "已处理"
-  }
-  if (status == "2") {
-    return "处理完成"
-  }
-
-}
 
 </script>
 

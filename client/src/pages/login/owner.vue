@@ -17,9 +17,6 @@
       <el-form-item label="所属房屋面积" :label-width="formLabelWidth">
         <el-input v-model="owner.homeSquare" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="所属用户权限" :label-width="formLabelWidth">
-        <el-input v-model="owner.permission" autocomplete="off" />
-      </el-form-item>
     </el-form>
     <el-button @click="handle_add">提交</el-button>
   </div>
@@ -38,7 +35,6 @@ const owner = ref<add_owner>({
   "communityId": "",
   "doorId": "",
   "homeSquare":"",
-  "permission": "",
   "userId":"",
 })
 

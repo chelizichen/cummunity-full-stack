@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Bespeak {
-    String ownerId;
-    String CarPortId;
+    String userId;
+    String id;
+    String carId;
+    String bespeak_status;
 }

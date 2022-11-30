@@ -26,9 +26,10 @@ public class CarPortController {
     }
 
     // 修改停车位数据
-    @PostMapping("update")
+    @PostMapping("updateBespeak")
     public Ret updateCarPot(CarPort carPort){
-        return null;
+//        return carPortService;
+        return Ret.Success(carPortService.updateBespeak(carPort));
     }
 
     @GetMapping("list")
@@ -41,4 +42,7 @@ public class CarPortController {
     public Ret delCarPortList(){
         return null;
     }
+
+
+
 }

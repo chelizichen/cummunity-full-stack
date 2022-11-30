@@ -25,4 +25,9 @@ public class CarPortServiceImpl implements CarPortService {
     public List<CarPort> getCarPortListByCommunityId(String community_id) {
         return carPortMapper.getPortListByCommunityId(community_id);
     }
+
+    @Override
+    public Integer updateBespeak(CarPort carPort) {
+        return carPortMapper.updateBespeak(carPort);
+    }
 }

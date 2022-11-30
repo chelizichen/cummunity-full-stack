@@ -2,6 +2,7 @@
   <div>Owner 个人用户页面</div>
   <UserComponent :user="state.user" :owner="state.owner"></UserComponent>
   <SerVantComponent :servant="state.servant"></SerVantComponent>
+  <CarPortComponent :port="state.port"></CarPortComponent>
 </template>
 
 <script setup lang="ts">
@@ -19,13 +20,15 @@ import { getCarPortListByCommunityId } from '../../api/port';
 import useUserInfoStore from '../../store/module/userInfo';
 import UserComponent from '@/components/owner/user.vue'
 import SerVantComponent from '@/components/owner/servant.vue'
+import CarPortComponent from '@/components/owner/carport.vue'
 
 
 
 const state = reactive({
   user: null,
   owner: null,
-  servant:null,
+  servant: null,
+  port:null,
 })
 
 const infoStore = useUserInfoStore()
@@ -46,6 +49,7 @@ async function init() {
   state.user = user_data.data
   state.owner = owner_data.data
   state.servant = servant_list.data
+  state.port = port_list.data
   
 }
 
