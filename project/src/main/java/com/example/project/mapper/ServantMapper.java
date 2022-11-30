@@ -10,9 +10,14 @@ import java.util.List;
 @Mapper
 @Repository
 public interface ServantMapper {
-    List<Servant> getServantList(@Param("keyword")String keyword,@Param("page")String page,@Param("size")String size);
     List<Servant> getOwnServant(@Param("userId")String userId);
     Integer updateServant(Servant servant);
     Integer addServant(Servant servant);
     Integer delServant(@Param("id")String id);
+
+    List<Servant> getServantList(
+            @Param("keyword")String keyword,
+            @Param("page")Integer page,
+            @Param("size")String size
+    );
 }

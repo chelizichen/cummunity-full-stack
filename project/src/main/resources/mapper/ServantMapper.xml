@@ -16,7 +16,7 @@
     </resultMap>
 
     <select id="getServantList"  parameterType="Sorter" resultMap="Servant_Mapper">
-        Select * FROM servant;
+        Select * FROM servant where ser_desc like #{keyword} limit ${page},${size};
     </select>
 
     <select id="getOwnServant" parameterType="String" resultMap="Servant_Mapper">

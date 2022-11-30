@@ -4,6 +4,7 @@ import com.example.project.config.Ret;
 import com.example.project.pojo.CarPort;
 import com.example.project.pojo.Owner;
 import com.example.project.service.OwnerService;
+import com.example.project.service.ServantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,9 @@ import java.util.List;
 public class OwnerController {
     @Autowired
     OwnerService ownerService;
+
+    @Autowired
+    ServantService servantService;
 
     @PostMapping("update")
     public Ret updateUser(@RequestBody Owner owner){
@@ -30,8 +34,8 @@ public class OwnerController {
 
 
     @GetMapping("servant_list")
-    public Ret getServantList(@RequestParam("id")String ownerId){
-        return null;
+    public Ret getServantList(@RequestParam("id")String userId){
+        return Ret.Success(servantService.getOwnServant(userId));
     }
 
 

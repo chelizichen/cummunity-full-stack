@@ -5,6 +5,7 @@ import com.example.project.dto.Bespeak;
 import com.example.project.pojo.CarPort;
 import com.example.project.pojo.Servant;
 import com.example.project.service.CarPortService;
+import com.example.project.service.ServantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,9 @@ public class ServantController {
 
     @Autowired
     CarPortService carPortService;
+
+    @Autowired
+    ServantService servantService;
 
     // 查看车位列表
     @GetMapping("port_list_by_community_id")
@@ -49,6 +53,7 @@ public class ServantController {
         return null;
     }
 
+    // 上传东西
     @PostMapping("post_server")
     public Ret postServer(@RequestBody Servant servant){
         return null;
@@ -58,6 +63,16 @@ public class ServantController {
    // 申请门禁卡丢失补办
     @PostMapping("post_card_lost")
     public Ret postCardLost(@RequestBody Servant servant){
+        return null;
+    }
+
+    @GetMapping("list")
+    public Ret getServantList(@RequestParam(value = "keyword",defaultValue = "")String keyword, @RequestParam(value = "page",defaultValue = "0")String page, @RequestParam(value = "size",defaultValue = "10")String size){
+        return Ret.Success(servantService.getServantList(keyword,page,size));
+    }
+
+    @GetMapping("del")
+    public Ret delOneById(@RequestParam("id")String id){
         return null;
     }
 

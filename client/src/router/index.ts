@@ -1,4 +1,5 @@
 import {RouteRecord,createRouter,createWebHistory, RouteRecordRaw} from 'vue-router'
+import useUserInfoStore from '../store/module/userInfo';
 
 
 /**
@@ -68,9 +69,30 @@ const routes: RouteRecordRaw[] = [
   },
 ];
 
+
 const router = createRouter({
   routes,
   history:createWebHistory()
+})
+
+
+router.beforeEach((to, from, next) => {
+
+  const userStore = useUserInfoStore()
+  console.log(to.path);
+  if (to.path == "/owner") {
+    if (!userStore.getUserId()) {
+      next({
+        path: "/login",
+      });
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+  // if( to.path == "")
+
 })
 
 export default router

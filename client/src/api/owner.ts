@@ -33,3 +33,10 @@ export function update(data: update_owner | add_owner) {
   });
 }
 
+export function owner_servant_list(params: QueryId) {
+  return request({
+    url: "owner/servant_list",
+    params
+  });
+  
+}

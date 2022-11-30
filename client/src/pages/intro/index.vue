@@ -47,54 +47,54 @@
                 <List />
               </el-icon>
 
-              <el-button class="button" text>Operation button</el-button>
+              <el-button class="button" text>福萧物业管理平台</el-button>
             </div>
           </template>
           <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
         </el-card>
       </div>
-            <div class="major-item">
-              <el-card class="box-card">
-                <template #header>
-                  <div class="card-header">
-                    <el-icon>
-                      <List />
-                    </el-icon>
-            
-                    <el-button class="button" text>Operation button</el-button>
-                  </div>
-                </template>
-                <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-              </el-card>
+      <div class="major-item">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <el-icon>
+                <List />
+              </el-icon>
+
+              <el-button class="button" text>福潇私人助手</el-button>
             </div>
-                  <div class="major-item">
-                    <el-card class="box-card">
-                      <template #header>
-                        <div class="card-header">
-                          <el-icon>
-                            <List />
-                          </el-icon>
-                  
-                          <el-button class="button" text>Operation button</el-button>
-                        </div>
-                      </template>
-                      <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-                    </el-card>
-                  </div>
-                        <div class="major-item">
-                          <el-card class="box-card">
-                            <template #header>
-                              <div class="card-header">
-                                <el-icon>
-                                  <List />
-                                </el-icon>
-                        
-                                <el-button class="button" text>Operation button</el-button>
-                              </div>
-                            </template>
-                            <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-                          </el-card>
-                        </div>
+          </template>
+          <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+        </el-card>
+      </div>
+      <div class="major-item">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <el-icon>
+                <List />
+              </el-icon>
+
+              <el-button class="button" text>大数据展示平台</el-button>
+            </div>
+          </template>
+          <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+        </el-card>
+      </div>
+      <div class="major-item">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <el-icon>
+                <List />
+              </el-icon>
+
+              <el-button class="button" text>后勤管家</el-button>
+            </div>
+          </template>
+          <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+        </el-card>
+      </div>
     </div>
 
   </div>
@@ -217,6 +217,7 @@ const bgItems = [bg1, bg2, bg3];
     border-radius: 50%;
     background-color: rgb(230, 20, 20);
     .flex-center();
+    margin: 40px 0;
   }
 
   .major-split::before {
@@ -233,14 +234,19 @@ const bgItems = [bg1, bg2, bg3];
     width: 600px;
     text-align: center;
   }
-  .major-content{
+
+  .major-content {
     width: 80%;
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    .major-item{
+
+    .major-item {
       width: 40%;
       margin: 5%;
+      .box-card{
+        text-align: center
+      }
     }
   }
 
@@ -259,6 +265,7 @@ const bgItems = [bg1, bg2, bg3];
     border-radius: 50%;
     background-color: rgb(230, 20, 20);
     .flex-center();
+    margin: 40px 0;
   }
 
   .servant-split::before {
