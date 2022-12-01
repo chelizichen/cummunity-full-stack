@@ -2,7 +2,7 @@
 <template>
   <el-header>
     <el-menu :default-active="activeIndex" class="menu" mode="horizontal" :ellipsis="false" @select="handleSelect">
-      <el-menu-item index="/home/intro">
+      <el-menu-item>
     <img :src="Logo"  style="width: 100%;height:50px;"/>
       
       </el-menu-item>

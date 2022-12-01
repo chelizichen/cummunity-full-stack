@@ -255,8 +255,8 @@ import { DocumentAdd, Lightning, Phone, Sunny, Key, List } from "@element-plus/i
     flex-wrap: wrap;
 
     .major-item {
-      width: 40%;
-      margin: 5%;
+      width: 46%;
+      margin: 2%;
 
       .box-card {
         text-align: center

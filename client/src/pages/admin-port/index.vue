@@ -41,22 +41,25 @@
 <script setup lang="ts">
 
 import { onMounted, reactive,ref } from 'vue';
-import { list,del } from '../../api/port';
+import { list,del, getCarPortListByCommunityId } from '../../api/port';
 import { Pagination } from '../../type/common.d'
 import Edit from './edit.vue'
 import _ from 'lodash'
 import { ElNotification } from 'element-plus';
 import { car_port__table } from '../../type/car_port';
+import store from '../../store';
 const state = reactive({
   list:<Array<car_port__table>>[]
 })
+
+const { useUserInfoStore } = store;
 
 const pagination = ref<Pagination>({
   size: 10,
   keyword: "",
   page: 1
 })
-
+// getCarPortListByCommunityId
 const dialogFormVisible = ref(false)
 const dialogVal =  ref<any>()
 function handle_close() {
@@ -92,10 +95,18 @@ async function handle_del(item: car_port__table) {
 }
 
 async function init() {
-  const data = await list(pagination.value)
-  console.log(data);
+
+  console.log(useUserInfoStore.user_info);
+
+  if (Number(useUserInfoStore.user_info?.permission) < 5) {
+    const community_id = useUserInfoStore.owner_info?.communityId as string;
+    const data = await getCarPortListByCommunityId({ community_id })
+    state.list = data.data;
+  } else {
+    const data = await list(pagination.value)
+    state.list = data.data
+  }
   
-  state.list = data.data
 }
 
 onMounted( () => {

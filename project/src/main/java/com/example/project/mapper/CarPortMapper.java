@@ -14,4 +14,6 @@ public interface CarPortMapper {
     Integer updateBespeak(CarPort carPort);
     Integer updateOpen(CarPort carPort);
     Integer insertCarPort(CarPort carPort);
+    Integer updateCarPort(CarPort carPort);
+
 }

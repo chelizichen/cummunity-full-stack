@@ -1,4 +1,7 @@
 import {RouteRecord,createRouter,createWebHistory, RouteRecordRaw} from 'vue-router'
+import { getOne } from '../api/owner';
+import { getOne as getOneByUserId } from "../api/user";
+
 import useUserInfoStore from '../store/module/userInfo';
 
 
@@ -80,10 +83,23 @@ const router = createRouter({
 })
 
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
 
   const userStore = useUserInfoStore()
-  console.log(to.path);
+  let userId = userStore.getUserId() as string;
+  if (!userId || !userStore.user_info || !userStore) {
+      const user_data = await getOneByUserId({ id: userId });
+    const owner_data = await getOne({ id: userId });
+    console.log(user_data.data);
+    console.log(owner_data.data);
+    
+      userStore.setUserInfo(user_data.data);
+      userStore.setOwnerInfo(owner_data.data);
+  }
+  console.log(userStore.user_info);
+  console.log(userStore.owner_info);
+  
+  
   if (to.path == "/owner") {
     if (!userStore.getUserId()) {
       next({

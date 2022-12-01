@@ -19,10 +19,15 @@
         <el-input v-model="props.val.portId" autocomplete="off" />
       </el-form-item>
       <el-form-item label="是否被预约" :label-width="formLabelWidth">
-        <el-input v-model="props.val.portIsBespeak" autocomplete="off" />
+        <!-- <el-input v-model="props.val.portIsBespeak" autocomplete="off" /> -->
+            <el-select v-model="props.val.portIsBespeak" placeholder="Select">
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+            </el-select>
       </el-form-item>
       <el-form-item label="是否开放" :label-width="formLabelWidth">
-        <el-input v-model="props.val.portIsOpen" autocomplete="off" />
+        <el-select v-model="props.val.portIsOpen" placeholder="Select">
+          <el-option v-for="item in open" :key="item.value" :label="item.label" :value="item.value" />
+        </el-select>
       </el-form-item>
       <el-form-item label="管理者ID" :label-width="formLabelWidth">
         <el-input v-model="props.val.portManagerId" autocomplete="off" />
@@ -75,6 +80,28 @@ const emit = defineEmits(["close", "success"])
 function close() {
   emit("close")
 }
+
+const options = [
+  {
+    value: '0',
+    label: '未预约',
+  },
+  {
+    value: '1',
+    label: '已经预约',
+  },
+]
+
+const open = [
+  {
+    value: '0',
+    label: '未开放',
+  },
+  {
+    value: '1',
+    label: '已开放',
+  },
+]
 
 
 </script>

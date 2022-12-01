@@ -30,4 +30,13 @@ public class CarPortServiceImpl implements CarPortService {
     public Integer updateBespeak(CarPort carPort) {
         return carPortMapper.updateBespeak(carPort);
     }
+
+    @Override
+    public Integer updateCarPort(CarPort carPort) {
+        if(carPort.getId() == null){
+            return carPortMapper.insertCarPort(carPort);
+        }else {
+            return carPortMapper.updateCarPort(carPort);
+        }
+    }
 }

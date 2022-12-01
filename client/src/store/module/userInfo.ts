@@ -28,13 +28,11 @@ let useUserInfoStore = defineStore("useUserStore", {
       }
     },
 
-    async setInfo() {
-      const id = this.getUserId()
-      if (!id) {
-        return 
-      } else {
-        
-      }
+    async setUserInfo(obj: any) {
+      this.user_info = obj;
+    },
+    async setOwnerInfo(obj: any) {
+      this.owner_info = obj;
     }
   },
 });

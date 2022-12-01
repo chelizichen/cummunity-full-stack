@@ -38,5 +38,4 @@ export function owner_servant_list(params: QueryId) {
     url: "owner/servant_list",
     params
   });
-  
 }

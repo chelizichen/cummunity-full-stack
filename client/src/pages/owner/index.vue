@@ -1,6 +1,6 @@
 <template>
   <div class="bg">
-  <UserComponent :user="state.user" :owner="state.owner"></UserComponent>
+  <UserComponent></UserComponent>
   <SerVantComponent :servant="state.servant"></SerVantComponent>
   <CarPortComponent :port="state.port"></CarPortComponent>
   </div>
@@ -16,7 +16,6 @@
 // 提供服务接口
 // 得到提交服务的列表
 import { onMounted, reactive } from 'vue';
-import { getOne } from '../../api/user';
 import { getOne as getOneByUserId, owner_servant_list } from '../../api/owner';
 import { getCarPortListByCommunityId } from '../../api/port';
 import useUserInfoStore from '../../store/module/userInfo';
@@ -27,8 +26,6 @@ import CarPortComponent from '@/components/owner/carport.vue'
 
 
 const state = reactive({
-  user: null,
-  owner: null,
   servant: null,
   port:null,
 })
@@ -36,22 +33,21 @@ const state = reactive({
 const infoStore = useUserInfoStore()
 
 async function init() {
-  let userId = infoStore.getUserId() as string;
-  // const userId = localStorage.getItem("")
-  const user_data = await  getOne({id:userId})
-  const owner_data = await getOneByUserId({ id: userId })
-  const port_list = await getCarPortListByCommunityId({
-    community_id: owner_data.data.communityId
-  })
-  const servant_list = await owner_servant_list({id:userId})
-  console.log(port_list.data);
-  console.log(servant_list);
+  console.log('2', infoStore.owner_info);
   
-
-  state.user = user_data.data
-  state.owner = owner_data.data
+  let community_id = infoStore.owner_info?.communityId as string;
+  let userId = infoStore.user_info?.id as string;
+  console.log('community_id', community_id);
+  
+  const port_list = await getCarPortListByCommunityId({
+    community_id,
+  })
+  const servant_list = await owner_servant_list({id:userId})  
   state.servant = servant_list.data
   state.port = port_list.data
+
+  // infoStore
+
   
 }
 

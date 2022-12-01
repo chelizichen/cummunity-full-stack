@@ -3,6 +3,7 @@ package com.example.project.controller;
 import com.example.project.config.Ret;
 import com.example.project.pojo.CarPort;
 import com.example.project.service.CarPortService;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,8 @@ public class CarPortController {
 
     // 修改停车位数据
     @PostMapping("updateBespeak")
-    public Ret updateCarPot(CarPort carPort){
+    public Ret updateCarPot(@RequestBody  CarPort carPort){
+        System.out.println(carPort);
 //        return carPortService;
         return Ret.Success(carPortService.updateBespeak(carPort));
     }
@@ -43,6 +45,12 @@ public class CarPortController {
         return null;
     }
 
+
+    @PostMapping("update")
+    public Ret updateCarPort(@RequestBody CarPort carPort){
+        final val integer = carPortService.updateCarPort(carPort);
+        return Ret.Success(integer);
+    }
 
 
 }

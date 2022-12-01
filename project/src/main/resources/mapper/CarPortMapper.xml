@@ -26,7 +26,9 @@
     </select>
 
     <update id="updateBespeak" parameterType="CarPort">
-        update car_port set port_is_bespeak = #{PortIsBespeak},port_car_id = #{PortCarId},port_user_id= #{PortUserId} where id = #{id}
+        update car_port set port_is_bespeak = #{portIsBespeak},
+                            port_car_id = #{portCarId},
+                            port_user_id= #{portUserId} where id = #{id}
     </update>
 
     <update id="updateOpen">
@@ -44,16 +46,30 @@
                               port_is_bespeak,
                               port_car_id,
                               port_user_id
-                              ) values (#{PortPermission},
-                                        #{PortArea},
-                                        #{PortSum},
-                                        #{PortManagerId},
-                                        #{PortId},
-                                        #{PortCommunityId},
-                                        #{PortIsOpen},
-                                        #{PortIsBespeak},
-                                        #{PortCarId},
-                                        #{PortUserId})
+                              ) values (#{portPermission},
+                                        #{portArea},
+                                        #{portSum},
+                                        #{portManagerId},
+                                        #{portId},
+                                        #{portCommunityId},
+                                        #{portIsOpen},
+                                        #{portIsBespeak},
+                                        #{portCarId},
+                                        #{portUserId})
     </insert>
 
+    <update id="updateCarPort" parameterType="CarPort">
+        update car_port set
+                            port_is_bespeak = #{portIsBespeak},
+                            port_car_id = #{portCarId},
+                            port_user_id= #{portUserId},
+                            port_permission=#{portPermission},
+                            port_sum=#{portSum},
+                            port_manager_id=#{portManagerId},
+                            port_id=#{portId},
+                            port_community_id=#{portCommunityId},
+                            port_is_open=#{portIsOpen},
+                            port_area=#{portArea}
+        where id = #{id}
+    </update>
 </mapper>

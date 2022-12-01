@@ -39,6 +39,6 @@ export function updateBespeak(data: update_car_port) {
   return request({
     url: "carport/updateBespeak",
     method: "post",
-    data
+    data,
   });
 }

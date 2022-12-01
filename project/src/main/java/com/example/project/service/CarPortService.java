@@ -10,4 +10,5 @@ public interface CarPortService {
     List<CarPort> getCarPortList(String keyword, String page, String size);
     List<CarPort> getCarPortListByCommunityId(String community_id);
     Integer updateBespeak(CarPort carPort);
+    Integer updateCarPort(CarPort carPort);
 }

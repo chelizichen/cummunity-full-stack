@@ -34,11 +34,21 @@
              ) values(#{communityId},#{cell},#{doorId},#{userId},#{carId},#{homeSquare})
     </insert>
 
+    <update id="updateOwner" parameterType="Owner">
+        update owner set own_community_id=#{communityId},
+                         own_cell=#{cell},
+                         own_door_id=#{doorId},
+                         own_user_id=#{userId},
+                         own_car_id=#{carId},
+                         own_home_square=#{homeSquare}
+                         where id =#{id}
+    </update>
+
     <delete id="del" parameterType="String">
         delete from owner where id = #{id};
     </delete>
 
     <select id="getOne" parameterType="String" resultMap="Owner_Mapper">
-        select * from owner where id = #{id};
+        select * from owner where own_user_id = #{id};
     </select>
 </mapper>
