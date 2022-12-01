@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <el-card class="box-card">
       <template #header>
         <div class="card-header">
@@ -49,6 +49,11 @@ const props = defineProps<{
 
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+.box{
+  padding: 5px 5%;
+  .box-card{
+    margin: 20px 0;
+  }
+}
 </style>

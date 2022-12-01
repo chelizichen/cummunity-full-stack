@@ -65,6 +65,10 @@ const routes: RouteRecordRaw[] = [
         path: "port",
         component: () => import("@/pages/admin-port/index.vue"),
       },
+      {
+        path: "servant",
+        component:()=>import("@/pages/admin-servant/index.vue")
+      }
     ],
   },
 ];

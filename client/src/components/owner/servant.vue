@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <el-card class="box-card">
       <template #header>
         <div class="card-header">
@@ -41,12 +41,17 @@ function getStatus(status: string) {
 </script>
 
 <style scoped lang="less">
-.space_between{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.servant_item{
-  .space_between();
+.space_between {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+.box {
+  padding: 10px 5%;
+
+  
+    .servant_item {
+      .space_between();
+    }
 }
 </style>

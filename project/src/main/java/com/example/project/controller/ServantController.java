@@ -71,6 +71,11 @@ public class ServantController {
         return Ret.Success(servantService.getServantList(keyword,page,size));
     }
 
+    @PostMapping("update")
+    public Ret updateServant(@RequestBody Servant servant){
+            return Ret.Success(servantService.updateServant(servant));
+    }
+
     @GetMapping("del")
     public Ret delOneById(@RequestParam("id")String id){
         return null;

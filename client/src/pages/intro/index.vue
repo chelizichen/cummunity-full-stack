@@ -146,6 +146,19 @@
     <div class="about-title">关于我们</div>
     <div class="about-split"></div>
     <div class="about-intro">打造世界具核心竞争力的物业软件供应商</div>
+    <div class="about-content">
+      <div class="about-content-left">
+        <img :src="bg3" style="width:100%;height:100%" />
+      </div>
+      <div class="about-content-right">
+        <div>
+          昆明阿笨科技有限公司是一家专业从事企业管理软件开发与服务的公司，其业务涉及软件开发，GPS物流电子锁、车辆道闸系统、网络系统集成，公司经过多年的发展和经验积累，已经在智慧商业和智慧社区物业综合管理软件行业有很高的知名度、目前针对商铺租赁行业已经做到极致，完全图形化的租赁管理软件。公司以"诚信第一，服务到永远，每日有进步”为宗旨，以先进的管理理念为依据，集合各行业的地方管理特点及管理模式开发出具有个性特色又适合地方行业的企业管理系统.
+        </div>
+        <div>
+          昆明阿笨科技有限公司凭借丰富的经验和以诚信为本的服务精神，紧紧围绕用户需求，自主开发了一系列软件产品，为用户提供优质快捷的服务，包括服务热线支持、用户客户化定制开发、现场技术支持、用户培训、项目实施、系统集成、技术支援、系统运行评估、专业人员培训等全方位的服务。公司不仅拥有优秀的开发团队，还拥有优秀的管理团队和资深的高级顾问，他们具备丰富的大中型软件系统的设计开发经验，精通企业管理软件及软件应用行业特点，为企业提供切合实际需求的完整的解决方案，使用户通过现代化的管理真正达到"以软件配合管理制度，向管理要效益”的目的.
+        </div>
+      </div>
+    </div>
   </div>
   <div class="contact">
     <div class="contact-title">联系方式</div>
@@ -162,7 +175,7 @@ import bg2 from "/bg/bg2.png";
 import bg3 from "/bg/bg3.png";
 import { DocumentAdd, Lightning, Phone, Sunny, Key, List } from "@element-plus/icons-vue";
 
-const bgItems = [bg1, bg2, bg3];
+
 </script>
 
 <style scoped lang="less">
@@ -244,7 +257,8 @@ const bgItems = [bg1, bg2, bg3];
     .major-item {
       width: 40%;
       margin: 5%;
-      .box-card{
+
+      .box-card {
         text-align: center
       }
     }
@@ -310,6 +324,7 @@ const bgItems = [bg1, bg2, bg3];
     border-radius: 50%;
     background-color: rgb(230, 20, 20);
     .flex-center();
+    margin: 40px 0;
   }
 
   .about-split::before {
@@ -325,6 +340,30 @@ const bgItems = [bg1, bg2, bg3];
   .about-intro {
     width: 600px;
     text-align: center;
+  }
+
+  .about-content {
+    width: 80%;
+    margin: 20px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .about-content-left {
+      width: 50%;
+      height: 300px
+    }
+
+    .about-content-right {
+      width: 50%;
+      height: 300px;
+
+      div{
+        font-size: 14px;
+        margin: 20px 0;
+        text-indent: 28px;
+      }
+    }
   }
 
   .publicContent();

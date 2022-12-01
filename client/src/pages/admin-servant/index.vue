@@ -7,15 +7,14 @@
   <div>
     <el-table :data="state.list" style="width: 100%">
       <el-table-column prop="id" label="ID" />
-      <el-table-column prop="portPermission" label="停车所需权限" />
-      <el-table-column prop="portArea" label="停车区域" />
-      <el-table-column prop="portSum" label="停车位总量" />
-      <el-table-column prop="portManagerId" label="管理者ID" />
-      <el-table-column prop="portCommunityId" label="社区ID" />
-      <el-table-column prop="portIsOpen" label="是否打开" />
-      <el-table-column prop="portIsBespeak" label="是否被预约" />
-      <el-table-column prop="portCarId" label="车牌号" />
-      <el-table-column prop="portUserId" label="用户ID" />
+      <el-table-column prop="communityId" label="社区ID" />
+      <el-table-column prop="desc" label="描述" />
+      <el-table-column prop="address" label="地址" />
+      <el-table-column prop="permission" label="权限" />
+      <el-table-column prop="servantType" label="服务类型" />
+      <el-table-column prop="status" label="服务状态" />
+      <el-table-column prop="userId" label="用户ID" />
+      <el-table-column prop="weight" label="权重" />
       <el-table-column prop="createTime" label="创建时间" />
       <el-table-column  label="操作">
       <template #default="scope">
@@ -41,14 +40,14 @@
 <script setup lang="ts">
 
 import { onMounted, reactive,ref } from 'vue';
-import { list,del } from '../../api/port';
+import { list,del } from '../../api/servant';
 import { Pagination } from '../../type/common.d'
 import Edit from './edit.vue'
 import _ from 'lodash'
 import { ElNotification } from 'element-plus';
-import { car_port__table } from '../../type/car_port';
+import { servant__table } from '../../type/servant';
 const state = reactive({
-  list:<Array<car_port__table>>[]
+  list:<Array<servant__table>>[]
 })
 
 const pagination = ref<Pagination>({
@@ -81,7 +80,7 @@ function handle_add() {
   dialogVal.value = {}
 }
 
-async function handle_del(item: car_port__table) {
+async function handle_del(item: servant__table) {
   const data = await del({ id: item.id })
   // @ts-ignore
   if (data.code == 0) {

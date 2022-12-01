@@ -13,7 +13,8 @@ export type servant__table = {
   servantType: string;
   status: string;
   weight: string;
-  community_id: string;
+  communityId: string;
+  userId: string;
   createTime: Date;
 }
 

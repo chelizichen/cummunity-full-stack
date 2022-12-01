@@ -5,7 +5,7 @@
     <resultMap type="com.example.project.pojo.Servant" id="Servant_Mapper">
         <result column="id" jdbcType="VARCHAR" property="id"/>
         <result column="ser_permission" jdbcType="VARCHAR" property="permission"/>
-        <result column="ser_community" jdbcType="VARCHAR" property="communityId"/>
+        <result column="ser_community_id" jdbcType="VARCHAR" property="communityId"/>
         <result column="ser_address" jdbcType="VARCHAR" property="address"/>
         <result column="ser_user_id" jdbcType="VARCHAR" property="userId"/>
         <result column="ser_desc" jdbcType="VARCHAR" property="desc"/>
@@ -23,8 +23,16 @@
         Select * FROM servant where ser_user_id = #{userId};
     </select>
 
-    <update id="updateServant">
-        update servant Set ser_status = #{status} where id = #{id}
+    <update id="updateServant" parameterType="Servant">
+        update servant Set ser_permission= #{permission},
+                           ser_community_id = #{communityId},
+                           ser_address = #{address},
+                           ser_user_id = #{userId},
+                           ser_desc = #{desc},
+                           ser_servant_type = #{servantType},
+                           ser_status = #{status},
+                           ser_weight = #{weight}
+                           where id = #{id}
     </update>
 
     <insert id="addServant" parameterType="Servant">

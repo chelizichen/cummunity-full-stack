@@ -1,8 +1,10 @@
 <template>
-  <div>Owner 个人用户页面</div>
+  <div class="bg">
   <UserComponent :user="state.user" :owner="state.owner"></UserComponent>
   <SerVantComponent :servant="state.servant"></SerVantComponent>
   <CarPortComponent :port="state.port"></CarPortComponent>
+  </div>
+  
 </template>
 
 <script setup lang="ts">
@@ -61,5 +63,7 @@ onMounted(() => {
 
 
 <style scoped lang="less">
-
+.bg{
+  background-color: rgb(232, 242, 239);
+}
 </style>

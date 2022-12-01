@@ -13,7 +13,7 @@ public interface ServantService {
     List<CarPort> getPortList(String communityId);
     List<Servant> getOwnServant(String userId);
     Integer bespeakCar(Bespeak bespeak);
-    Integer addServant(Servant servant);
+    Integer updateServant(Servant servant);
 
     List<Servant> getServantList(
            String keyword,

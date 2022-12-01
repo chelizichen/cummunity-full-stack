@@ -1,4 +1,5 @@
-import { Pagination } from "../type/common";
+import { Pagination, QueryId } from "../type/common";
+import { servant__table } from "../type/servant";
 import request from "../utils/request";
 
 export function list(params:Pagination) {
@@ -8,14 +9,14 @@ export function list(params:Pagination) {
   })
 }
 
-export function del(params: Pagination) {
+export function del(params: QueryId) {
   return request({
     url: "servant/del",
     params,
   });
 }
 
-export function update(data: any) {
+export function update(data: servant__table) {
   return request({
     url: "servant/update",
     method: "post",
