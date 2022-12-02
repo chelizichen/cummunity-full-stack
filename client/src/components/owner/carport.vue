@@ -21,7 +21,6 @@
 <script setup lang="ts">
 import { updateBespeak } from '../../api/port';
 import PortPie from '../../charts/PortPie.vue';
-import store from '../../store';
 import { car_port__table } from '../../type/car_port';
 import { reactive, watch, onMounted } from 'vue';
 
@@ -43,7 +42,6 @@ watch(props, function (newVal) {
 
 
 
-const {useUserInfoStore} = store
 
 async function bespeakToPort() {
   const getOne = props.port.filter(el => {
@@ -51,9 +49,9 @@ async function bespeakToPort() {
   })[0]
 
   // @ts-ignore
-  getOne.portCarId = useUserInfoStore.owner_info?.carId;
+  getOne.portCarId = useUserInfoStore().owner_info?.carId;
   // @ts-ignore
-  getOne.portUserId = useUserInfoStore.owner_info?.userId;
+  getOne.portUserId = useUserInfoStore().owner_info?.userId;
   getOne.portIsBespeak = "1"
 
   console.log('getOne', getOne);

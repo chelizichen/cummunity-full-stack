@@ -9,6 +9,7 @@
         <result column="me_is_root" jdbcType="VARCHAR" property="menuIsRoot"/>
         <result column="me_root_id" jdbcType="VARCHAR" property="menuRootId"/>
         <result column="me_path" jdbcType="VARCHAR" property="menuPath"/>
+        <result column="me_component" jdbcType="VARCHAR" property="menuComponent"/>
         <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 

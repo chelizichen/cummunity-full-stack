@@ -381,6 +381,7 @@ import { DocumentAdd, Lightning, Phone, Sunny, Key, List } from "@element-plus/i
     border-radius: 50%;
     background-color: rgb(230, 20, 20);
     .flex-center();
+    margin: 40px 0;
   }
 
   .contact-split::before {

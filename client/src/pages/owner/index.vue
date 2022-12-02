@@ -18,7 +18,7 @@
 import { onMounted, reactive } from 'vue';
 import { getOne as getOneByUserId, owner_servant_list } from '../../api/owner';
 import { getCarPortListByCommunityId } from '../../api/port';
-import useUserInfoStore from '../../store/module/userInfo';
+import useUserInfoStore from '../../store/userInfo'
 import UserComponent from '@/components/owner/user.vue'
 import SerVantComponent from '@/components/owner/servant.vue'
 import CarPortComponent from '@/components/owner/carport.vue'

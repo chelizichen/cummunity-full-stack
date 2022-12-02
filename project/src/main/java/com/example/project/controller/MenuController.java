@@ -35,5 +35,9 @@ public class MenuController {
         return null;
     }
 
+    @GetMapping("router")
+    public Ret getRouterList(@RequestParam("permission")String permission){
+        return Ret.Success(menuService.getMenuRouter(permission));
+    }
 
 }

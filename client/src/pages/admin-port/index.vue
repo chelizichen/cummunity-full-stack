@@ -47,12 +47,11 @@ import Edit from './edit.vue'
 import _ from 'lodash'
 import { ElNotification } from 'element-plus';
 import { car_port__table } from '../../type/car_port';
-import store from '../../store';
+import useUserInfoStore from '../../store/userInfo';
 const state = reactive({
   list:<Array<car_port__table>>[]
 })
 
-const { useUserInfoStore } = store;
 
 const pagination = ref<Pagination>({
   size: 10,
@@ -96,10 +95,10 @@ async function handle_del(item: car_port__table) {
 
 async function init() {
 
-  console.log(useUserInfoStore.user_info);
+  console.log(useUserInfoStore().user_info);
 
-  if (Number(useUserInfoStore.user_info?.permission) < 5) {
-    const community_id = useUserInfoStore.owner_info?.communityId as string;
+  if (Number(useUserInfoStore().user_info?.permission) < 5) {
+    const community_id = useUserInfoStore().owner_info?.communityId as string;
     const data = await getCarPortListByCommunityId({ community_id })
     state.list = data.data;
   } else {

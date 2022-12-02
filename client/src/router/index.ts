@@ -1,9 +1,14 @@
-import {RouteRecord,createRouter,createWebHistory, RouteRecordRaw} from 'vue-router'
-import { getOne } from '../api/owner';
+import {
+  RouteRecord,
+  createRouter,
+  createWebHistory,
+  RouteRecordRaw,
+} from "vue-router";
+import { ApiRouterMenu } from "../api/menu";
+import { getOne } from "../api/owner";
 import { getOne as getOneByUserId } from "../api/user";
-
-import useUserInfoStore from '../store/module/userInfo';
-
+import useUserInfoStore from "../store/userInfo";
+import useMenuStore from "../store/menu";
 
 /**
  * 判断是否有业主 token
@@ -36,10 +41,6 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
-  // {
-  //   path: "/login",
-  //   component: () => import("@/pages/login/index.vue"),
-  // },
   {
     path: "/owner",
     component: () => import("@/pages/owner/index.vue"),
@@ -52,67 +53,50 @@ const routes: RouteRecordRaw[] = [
         path: "dashboard",
         component: () => import("@/pages/admin-dashboard/index.vue"),
       },
-      {
-        path: "user",
-        component: () => import("@/pages/admin-user/index.vue"),
-      },
-      {
-        path: "owner",
-        component: () => import("@/pages/admin-owner/index.vue"),
-      },
-      {
-        path: "menu",
-        component: () => import("@/pages/admin-menu/index.vue"),
-      },
-      {
-        path: "port",
-        component: () => import("@/pages/admin-port/index.vue"),
-      },
-      {
-        path: "servant",
-        component:()=>import("@/pages/admin-servant/index.vue")
-      }
     ],
   },
 ];
 
-
 const router = createRouter({
   routes,
-  history:createWebHistory()
-})
-
+  history: createWebHistory(),
+});
 
 router.beforeEach(async (to, from, next) => {
+  const userStore = useUserInfoStore();
+  const menuStore = useMenuStore();
 
-  const userStore = useUserInfoStore()
-  let userId = userStore.getUserId() as string;
-  if (!userId || !userStore.user_info || !userStore) {
-      const user_data = await getOneByUserId({ id: userId });
-    const owner_data = await getOne({ id: userId });
-    console.log(user_data.data);
-    console.log(owner_data.data);
-    
-      userStore.setUserInfo(user_data.data);
-      userStore.setOwnerInfo(owner_data.data);
-  }
-  console.log(userStore.user_info);
-  console.log(userStore.owner_info);
-  
-  
-  if (to.path == "/owner") {
-    if (!userStore.getUserId()) {
-      next({
-        path: "/login",
-      });
-    } else {
-      next()
-    }
+  if (to.path == "/home/login") {
+    next();
   } else {
-    next()
+    let userId = userStore.getUserId() as string;
+    if (userId) {
+      const { asyncRoutesMark, setAsyncRoutesMark, setAsyncRoutes, setMenu } =
+        menuStore;
+      if (asyncRoutesMark) {
+        next();
+      } else {
+        const user_data = await getOneByUserId({ id: userId });
+        const owner_data = await getOne({ id: userId });
+        userStore.setUserInfo(user_data.data);
+        userStore.setOwnerInfo(owner_data.data);
+        const permission = userStore.user_info?.permission as string;
+        const menu = await ApiRouterMenu({ permission });
+        const filterMenu = setAsyncRoutes(menu.data);
+        setMenu(filterMenu);
+        filterMenu.forEach((el) => {
+          // @ts-ignore
+          router.addRoute(el);
+        });
+        setAsyncRoutesMark(true);
+        next({ ...to, replace: true });
+      }
+    } else {
+      next("/home/login");
+    }
   }
-  // if( to.path == "")
 
-})
+  console.log(router.getRoutes());
+});
 
-export default router
+export default router;

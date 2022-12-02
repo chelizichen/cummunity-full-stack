@@ -5,8 +5,17 @@ export type menu__table = {
   menuIsRoot: string;
   menuRootId: string;
   menuPath: string;
+  menuComponent: string;
   createTime: Date;
 };
 
-export type add_menu = Omit<menu,"createTime"|"id">
+export type add_menu = Omit<menu, "createTime" | "id">;
 export type update_menu = Omit<menu, "createTime">;
+
+export type router_menu = {
+  name: string;
+  id: string;
+  path: string;
+  component: string;
+  children: router_menu[];
+};

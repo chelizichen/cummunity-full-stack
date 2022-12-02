@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-import { owner__table } from "../../type/owner";
-import { user } from "../../type/user";
+import { owner__table } from "../type/owner";
+import { user } from "../type/user";
 
 type _state_ = Partial<{
   userId: string,

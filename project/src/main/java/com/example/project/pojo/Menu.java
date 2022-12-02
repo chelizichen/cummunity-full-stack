@@ -14,5 +14,6 @@ public class Menu {
     String menuIsRoot;
     String menuRootId;
     String menuPath;
+    String menuComponent;
     String createTime;
 }

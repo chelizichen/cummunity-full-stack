@@ -13,10 +13,10 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
 
+const pinia = createPinia()
 
+const setupAll = async () => {
+  app.use(element).use(pinia).use(router).mount("#app");
+}
 
-createApp(App)
-  .use(element)
-  .use(router)
-  .use(createPinia())
-  .mount("#app");
+setupAll()

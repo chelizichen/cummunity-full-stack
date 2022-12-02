@@ -66,16 +66,16 @@ import { user as user__table } from '../../type/user';
 import { reactive, ref } from 'vue'
 import { update } from '../../api/owner';
 import { update as updateUser } from '../../api/user'
-import store from '../../store';
+import useUserInfoStore from '../../store/userInfo';
 
 const state = reactive({
   user_able: true,
   owner_able: true,
 })
-
-const { useUserInfoStore } = store
-const user = ref<user__table>(useUserInfoStore.user_info)
-const owner = ref<owner__table>(useUserInfoStore.owner_info)
+// @ts-ignore
+const user = ref<user__table>(useUserInfoStore().user_info)
+// @ts-ignore
+const owner = ref<owner__table>(useUserInfoStore().owner_info)
 
 const own_setp_class = ref(0)
 const user_setp_class = ref(0);
