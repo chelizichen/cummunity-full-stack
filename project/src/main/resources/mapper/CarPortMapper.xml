@@ -31,6 +31,11 @@
                             port_user_id= #{portUserId} where id = #{id}
     </update>
 
+    <delete id="delOneById" parameterType="String">
+        delete from car_port
+        where id = #{id};
+    </delete>
+
     <update id="updateOpen">
         update car_port set port_is_open = #{portIsOpen} where port_community_id = #{portCommunityId} and port_area = #{portArea};
     </update>

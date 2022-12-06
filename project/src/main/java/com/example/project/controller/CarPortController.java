@@ -41,8 +41,8 @@ public class CarPortController {
     }
 
     @GetMapping("del")
-    public Ret delCarPortList(){
-        return null;
+    public Ret delCarPortList(@RequestParam("id")String id){
+        return Ret.Success(carPortService.delOneById(id));
     }
 
 

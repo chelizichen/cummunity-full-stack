@@ -42,6 +42,7 @@ import Edit from './edit.vue'
 import _ from 'lodash'
 import { ElNotification } from 'element-plus';
 import { menu__table } from '../../type/menu';
+import useUserInfoStore from '../../store/userInfo';
 
 const state = reactive({
   list:<Array<menu__table>>[]
@@ -82,9 +83,10 @@ async function handle_del(item:menu__table) {
 }
 
 async function init() {
-  const data = await list({permission:"4"})
-  console.log(data);
-  
+  let permission = useUserInfoStore().user_info?.permission as string;
+  const data = await list({permission})
+  console.log('data', data);
+
   state.list = data.data
 }
 

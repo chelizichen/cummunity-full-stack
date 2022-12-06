@@ -1,5 +1,4 @@
 import {
-  RouteRecord,
   createRouter,
   createWebHistory,
   RouteRecordRaw,
@@ -95,8 +94,6 @@ router.beforeEach(async (to, from, next) => {
       next("/home/login");
     }
   }
-
-  console.log(router.getRoutes());
 });
 
 export default router;

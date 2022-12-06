@@ -36,19 +36,14 @@ async function init() {
   console.log('2', infoStore.owner_info);
   
   let community_id = infoStore.owner_info?.communityId as string;
-  let userId = infoStore.user_info?.id as string;
-  console.log('community_id', community_id);
-  
   const port_list = await getCarPortListByCommunityId({
     community_id,
   })
+  state.port = port_list.data
+  
+  let userId = infoStore.user_info?.id as string;
   const servant_list = await owner_servant_list({id:userId})  
   state.servant = servant_list.data
-  state.port = port_list.data
-
-  // infoStore
-
-  
 }
 
 onMounted(() => {

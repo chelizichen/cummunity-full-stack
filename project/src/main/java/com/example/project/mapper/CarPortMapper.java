@@ -15,5 +15,6 @@ public interface CarPortMapper {
     Integer updateOpen(CarPort carPort);
     Integer insertCarPort(CarPort carPort);
     Integer updateCarPort(CarPort carPort);
+    Integer delOneById(@Param("id")String id);
 
 }

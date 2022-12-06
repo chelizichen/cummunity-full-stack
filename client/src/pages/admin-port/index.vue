@@ -12,6 +12,7 @@
       <el-table-column prop="portSum" label="停车位总量" />
       <el-table-column prop="portManagerId" label="管理者ID" />
       <el-table-column prop="portCommunityId" label="社区ID" />
+      <el-table-column prop="portId" label="停车位ID" />
       <el-table-column prop="portIsOpen" label="是否打开" />
       <el-table-column prop="portIsBespeak" label="是否被预约" />
       <el-table-column prop="portCarId" label="车牌号" />
@@ -20,7 +21,7 @@
       <el-table-column  label="操作">
       <template #default="scope">
         <el-button  type="primary" size="small" @click="handle_edit(scope.row)">编辑</el-button>
-        <el-popconfirm title="Are you sure to delete this?" @confirm="handle_del(scope.row)">
+        <el-popconfirm title="确认要删除吗?" @confirm="handle_del(scope.row)">
           <template #reference>
               <el-button  type="danger" size="small">删除</el-button>
           </template>

@@ -39,4 +39,9 @@ public class CarPortServiceImpl implements CarPortService {
             return carPortMapper.updateCarPort(carPort);
         }
     }
+
+    @Override
+    public Integer delOneById(String id) {
+        return carPortMapper.delOneById(id);
+    }
 }

@@ -14,7 +14,7 @@
     </resultMap>
 
     <select id="getMenuList"  parameterType="String" resultMap="Menu_Mapper">
-        SELECT * FROM menu where me_permission = #{menuPermission};
+        SELECT * FROM menu where me_permission like #{menuPermission};
     </select>
 
     <select id="getOneById" parameterType="String">

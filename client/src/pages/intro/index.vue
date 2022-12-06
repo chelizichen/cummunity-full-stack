@@ -50,7 +50,10 @@
               <el-button class="button" text>福萧物业管理平台</el-button>
             </div>
           </template>
-          <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+          <div>系统管理</div>
+          <div>小区管理</div>
+          <div>用户管理</div>
+          <div>车位管理</div>
         </el-card>
       </div>
       <div class="major-item">
@@ -64,7 +67,10 @@
               <el-button class="button" text>福潇私人助手</el-button>
             </div>
           </template>
-          <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+          <div>自助预约</div>
+          <div>智能管家</div>
+          <div>私人物业</div>
+          <div>智能生活</div>
         </el-card>
       </div>
       <div class="major-item">
@@ -75,10 +81,13 @@
                 <List />
               </el-icon>
 
-              <el-button class="button" text>大数据展示平台</el-button>
+              <el-button class="button" text>数据展示平台</el-button>
             </div>
           </template>
-          <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+          <div>展示小区的各种信息</div>
+          <div>展示车位方便业主预约</div>
+          <div>为后勤人员提供小区状态</div>
+          <div>各项服务数据展示</div>
         </el-card>
       </div>
       <div class="major-item">
@@ -92,7 +101,11 @@
               <el-button class="button" text>后勤管家</el-button>
             </div>
           </template>
-          <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+          <div>一站式管理</div>
+          <div>为业主提供服务</div>
+          <div>预约服务</div>
+          <div>使后勤服务变得更敏捷</div>
+
         </el-card>
       </div>
     </div>
@@ -109,31 +122,31 @@
         <el-icon :size="30" color="red">
           <DocumentAdd />
         </el-icon>
-        <div>可视化数据生成PDF</div>
+        <div>可视化数据生成文档</div>
       </div>
       <div class="servant-item">
         <el-icon :size="30" color="red">
           <Lightning />
         </el-icon>
-        <div>可视化数据生成PDF</div>
+        <div>闪电下载文档</div>
       </div>
       <div class="servant-item">
         <el-icon :size="30" color="red">
           <Sunny />
         </el-icon>
-        <div>可视化数据生成PDF</div>
+        <div>实时状态查询</div>
       </div>
       <div class="servant-item">
         <el-icon :size="30" color="red">
           <Key />
         </el-icon>
-        <div>可视化数据生成PDF</div>
+        <div>智能管家</div>
       </div>
       <div class="servant-item">
         <el-icon :size="30" color="red">
           <Phone />
         </el-icon>
-        <div>可视化数据生成PDF</div>
+        <div>后勤服务</div>
       </div>
     </div>
   </div>

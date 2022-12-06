@@ -22,6 +22,7 @@ public class MenuController {
 
     @GetMapping("list")
     public Ret getMenuList(@RequestParam("permission")String permission){
+        permission = "%" + permission + "%";
         return Ret.Success(menuService.getMenuList(permission));
     }
 
@@ -37,6 +38,7 @@ public class MenuController {
 
     @GetMapping("router")
     public Ret getRouterList(@RequestParam("permission")String permission){
+        permission = "%" + permission + "%";
         return Ret.Success(menuService.getMenuRouter(permission));
     }
 
