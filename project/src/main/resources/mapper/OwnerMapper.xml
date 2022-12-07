@@ -11,16 +11,32 @@
         <result column="own_car_id" jdbcType="VARCHAR" property="carId"/>
         <result column="own_home_square" jdbcType="VARCHAR" property="homeSquare"/>
         <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
+
+        <association property="user" javaType="com.example.project.pojo.User">
+            <result column="id" jdbcType="VARCHAR" property="id"/>
+            <result column="us_name" jdbcType="VARCHAR" property="username"/>
+            <result column="us_password" jdbcType="VARCHAR" property="password"/>
+            <result column="us_phone" jdbcType="VARCHAR" property="phone"/>
+            <result column="us_email" jdbcType="VARCHAR" property="email"/>
+            <result column="us_permission" jdbcType="VARCHAR" property="permission"/>
+            <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
+        </association>
+
     </resultMap>
+
 
     <select id="getOwnerList"  parameterType="Sorter" resultMap="Owner_Mapper">
         SELECT * From owner where own_community_id like #{keyword}  limit ${page},${size}
     </select>
 
+
     <select id="getOneByUserId" parameterType="String" resultMap="Owner_Mapper">
         SELECT * From owner where own_user_id = #{userId}
     </select>
 
+    <select id="getInfoByUserId" parameterType="String" resultMap="Owner_Mapper">
+        SELECT * From owner,user where owner.own_user_id = #{id} and user.id = #{id}
+    </select>
 
     <insert id="addOwner"  parameterType="Owner">
         Insert INTO owner

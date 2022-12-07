@@ -18,6 +18,12 @@
         <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 
+
+    <select id="login" parameterType="User">
+        SELECT * from user where us_phone = #{phone} and us_password = #{password}
+    </select>
+
+
     <select id="getUserList"  parameterType="Sorter" resultMap="User_Mapper">
         SELECT * From User where us_name like #{keyword} limit ${page},${size}
     </select>

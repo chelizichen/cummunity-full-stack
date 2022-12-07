@@ -34,3 +34,13 @@ export function update(data: update_user | add_user) {
   });
 }
 
+export function login(data: {
+  phone: string;
+  password: string;
+}) {
+  return request( {
+    url: "user/login",
+    method: "post",
+    data
+  })
+}

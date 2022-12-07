@@ -60,5 +60,10 @@ public class OwnerServiceImpl implements OwnerService {
     public Integer bespeakServer(Bespeak bespeak) {
         return null;
     }
+
+    @Override
+    public Owner getInfoByUserId(String id) {
+        return ownerMapper.getInfoByUserId(id);
+    }
 }
 

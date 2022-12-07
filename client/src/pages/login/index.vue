@@ -1,31 +1,33 @@
 <template>
-<el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
-  <el-tab-pane label="User" name="first">
-    <User @set-disable="setDisable" ></User>
-  </el-tab-pane>
-  <el-tab-pane label="Owner" name="second" :disabled="disabled">
-     <Owner></Owner>
-  </el-tab-pane>
-</el-tabs>
+  <div>
+    <el-form :model="form">
+      <el-form-item label="手机号" label-width="120px">
+        <el-input v-model="form.phone" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="密码" label-width="120px">
+        <el-input v-model="form.password" autocomplete="off" />
+      </el-form-item>
+    </el-form>
+  </div>
+  <button @click="toRegistry">注册</button>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import type { TabsPaneContext } from 'element-plus'
-import User from './user.vue'
-import Owner from './owner.vue'
-const activeName = ref('first')
+import { useRouter } from 'vue-router';
 
-const disabled = ref(true)
+const router = useRouter()
 
-function setDisable() {
-  disabled.value = false
-  activeName.value = "second"
+const form = reactive({
+  phone: '',
+  password:"",
+})
+
+const toRegistry = () => {
+  router.push("/home/registry")
 }
 
-const handleClick = (tab: TabsPaneContext, event: Event) => {
-  console.log(tab, event)
-}
+
 </script>
 
 

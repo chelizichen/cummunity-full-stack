@@ -29,9 +29,6 @@ public class UserController {
 
     @GetMapping("list")
     public Ret getUserList(@RequestParam(value = "keyword",defaultValue = "")String keyword,@RequestParam(value = "page",defaultValue = "0")String page,@RequestParam(value = "size",defaultValue = "10")String size){
-        System.out.println(keyword);
-        System.out.println(page);
-        System.out.println(size);
         final List<User> userList = userService.getUserList(keyword, page, size);
         return Ret.Success(userList);
     }

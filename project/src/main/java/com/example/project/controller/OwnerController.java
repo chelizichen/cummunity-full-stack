@@ -54,4 +54,9 @@ public class OwnerController {
         return Ret.Success(ownerService.getOneByUserId(id));
     }
 
+
+    @GetMapping("info")
+    public Ret getInfoByUserId(@RequestParam("id")String id){
+        return Ret.Success(ownerService.getInfoByUserId(id));
+    }
 }

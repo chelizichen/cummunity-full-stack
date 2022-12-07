@@ -24,4 +24,6 @@ public class Owner {
     String carId; // 车牌号
     String homeSquare; // 房间大小
     String createTime; //
+
+    User user;
 }

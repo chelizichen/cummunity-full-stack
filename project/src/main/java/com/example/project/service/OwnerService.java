@@ -22,4 +22,5 @@ public interface OwnerService {
     // 预约服务 添加描述和服务 添加照片
     Integer bespeakServer(Bespeak bespeak);
 
+    Owner getInfoByUserId(String id);
 }
