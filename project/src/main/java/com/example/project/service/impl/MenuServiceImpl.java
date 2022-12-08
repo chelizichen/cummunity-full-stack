@@ -25,7 +25,8 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public Integer updateMenu(Menu menu) {
-        if(menu.getId().equals("")){
+        if(menu.getId() == null){
+            System.out.println(menu);
             return menuMapper.addMenu(menu);
         }else {
             return menuMapper.updateMenu(menu);

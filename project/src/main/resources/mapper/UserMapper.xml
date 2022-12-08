@@ -2,12 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.project.mapper.UserMapper">
 
-<!--    <parameterMap  type="com.example.project.pojo.Sorter" id="Sorter">-->
-<!--        <parameter property="size" javaType="string" />-->
-<!--        <parameter property="page" javaType="string" />-->
-<!--        <parameter property="keyword" javaType="string" />-->
-<!--    </parameterMap>-->
-
     <resultMap type="com.example.project.pojo.User" id="User_Mapper">
         <result column="id" jdbcType="VARCHAR" property="id"/>
         <result column="us_name" jdbcType="VARCHAR" property="username"/>
@@ -19,7 +13,7 @@
     </resultMap>
 
 
-    <select id="login" parameterType="User">
+    <select id="login" parameterType="User" resultMap="User_Mapper">
         SELECT * from user where us_phone = #{phone} and us_password = #{password}
     </select>
 

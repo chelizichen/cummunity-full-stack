@@ -1,7 +1,7 @@
 export type community__table = {
   id: string;
-  comName: string;
-  comLocation: string;
+  name: string;
+  location: string;
   createTime: Date;
 }
 

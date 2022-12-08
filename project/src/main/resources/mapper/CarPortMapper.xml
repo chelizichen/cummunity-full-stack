@@ -25,6 +25,10 @@
         select * from car_port where port_community_id = #{portCommunityId};
     </select>
 
+    <select id="listBespeak" parameterType="String" resultMap="CarPort_Mapper">
+        select * from car_port where port_community_id = #{portCommunityId} and port_is_bespeak = #{portIsBespeak};
+    </select>
+
     <update id="updateBespeak" parameterType="CarPort">
         update car_port set port_is_bespeak = #{portIsBespeak},
                             port_car_id = #{portCarId},
@@ -39,6 +43,12 @@
     <update id="updateOpen">
         update car_port set port_is_open = #{portIsOpen} where port_community_id = #{portCommunityId} and port_area = #{portArea};
     </update>
+
+    <update id="dealBespeak">
+            update car_port set port_is_open = #{portIsOpen} where id = #{id}
+    </update>
+
+
 
     <insert id="insertCarPort">
         insert into car_port (port_permission,

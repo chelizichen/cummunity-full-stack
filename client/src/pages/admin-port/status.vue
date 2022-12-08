@@ -1,6 +1,5 @@
 <template>
   <div>
-    车位状态
       <PortPie :port="state.port"></PortPie>
   </div>
 </template>

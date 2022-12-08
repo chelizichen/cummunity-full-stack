@@ -44,4 +44,14 @@ public class CarPortServiceImpl implements CarPortService {
     public Integer delOneById(String id) {
         return carPortMapper.delOneById(id);
     }
+
+    @Override
+    public Integer dealBespeak(CarPort carPort) {
+        return carPortMapper.dealBespeak(carPort);
+    }
+
+    @Override
+    public List<CarPort> listBespeak(String id) {
+        return carPortMapper.listBespeak(id,"1");
+    }
 }

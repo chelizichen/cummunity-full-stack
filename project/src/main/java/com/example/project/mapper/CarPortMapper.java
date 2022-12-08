@@ -16,5 +16,7 @@ public interface CarPortMapper {
     Integer insertCarPort(CarPort carPort);
     Integer updateCarPort(CarPort carPort);
     Integer delOneById(@Param("id")String id);
+    Integer dealBespeak(CarPort carPort);
+    List<CarPort> listBespeak(@Param("portCommunityId")String portCommunityId,@Param("portIsBespeak")String portIsBespeak);
 
 }

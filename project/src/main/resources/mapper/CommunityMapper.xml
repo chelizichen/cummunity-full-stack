@@ -9,10 +9,25 @@
         <result column="createTime" jdbcType="VARCHAR" property="createTime"/>
     </resultMap>
 
-<!--    <select id="getCarPortList"  parameterType="Sorter" resultMap="Community_Mapper">-->
+    <select id="getList"  parameterType="Sorter" resultMap="Community_Mapper">
+        SELECT * From community where community.com_name like #{keyword} limit ${page},${size}
+    </select>
 
-<!--    </select>-->
+    <update id="update" parameterType="Community">
+        update community set com_name = #{name},
+                             com_location =#{location}
+                            where id = #{id}
+    </update>
 
+    <insert id="add">
+        insert into community (com_name, com_location) values (#{name},#{location})
+    </insert>
+
+    <delete id="delOne">
+        delete
+        from community
+        where id= #{id};
+    </delete>
 
     <!--    <select id="updateUser"  parameterMap="User" resultMap="User">-->
     <!--        SELECT * From User where username like #{keyword} limit #{page},#{size}-->

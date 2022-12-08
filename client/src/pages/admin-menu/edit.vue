@@ -14,6 +14,9 @@
       <el-form-item label="菜单所需要的权限" :label-width="formLabelWidth">
         <el-input v-model="props.val.menuPermission" autocomplete="off" />
       </el-form-item>
+      <el-form-item label="菜单组件路径" :label-width="formLabelWidth">
+        <el-input v-model="props.val.menuComponent" autocomplete="off" />
+      </el-form-item>
       <el-form-item label="父菜单ID" :label-width="formLabelWidth">
         <el-input v-model="props.val.menuRootId" autocomplete="off" />
       </el-form-item>

@@ -23,7 +23,7 @@ import { updateBespeak } from '../../api/port';
 import PortPie from '../../charts/PortPie.vue';
 import { car_port__table } from '../../type/car_port';
 import { reactive, watch, onMounted } from 'vue';
-
+import useUserInfoStore from '../../store/userInfo';
 // 个人服务列表
 const props = defineProps<{
   port: car_port__table[]

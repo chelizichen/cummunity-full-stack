@@ -10,9 +10,9 @@ import java.util.List;
 @Mapper
 @Repository
 public interface CommunityMapper {
-    List<Community> getCommunityList(@Param("keyword")String keyword, @Param("page")String page, @Param("size")String size);
+    List<Community> getList(@Param("keyword")String keyword, @Param("page")Integer page, @Param("size")String size);
     Community getOneById(@Param("id")String id);
-    Integer updateCommunity(Community community);
-    Integer addCommunity(Community community);
-    Integer delCommunity(@Param("id")String id);
+    Integer update(Community community);
+    Integer add(Community community);
+    Integer delOne(@Param("id")String id);
 }

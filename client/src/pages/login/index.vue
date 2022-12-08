@@ -9,12 +9,14 @@
       </el-form-item>
     </el-form>
   </div>
-  <button @click="toRegistry">注册</button>
+  <el-button @click="toLogin">登陆</el-button>
+  <el-button @click="toRegistry">注册</el-button>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router';
+import { login } from '../../api/user';
 
 const router = useRouter()
 
@@ -27,6 +29,17 @@ const toRegistry = () => {
   router.push("/home/registry")
 }
 
+const toLogin = async () => {
+  const data = await login(form)
+  console.log(data);
+  const user = data.data
+  if (user instanceof Array && user.length > 0) {
+    localStorage.setItem("userId", user[0].id)
+    router.replace("/home")
+  } else {
+    alert("登陆失败")
+  }
+}
 
 </script>
 

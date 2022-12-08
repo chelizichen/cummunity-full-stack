@@ -57,5 +57,9 @@ public class UserController {
         return Ret.Success("测试");
     }
 
+    @PostMapping("login")
+    public Ret Login(@RequestBody User user){
+        return Ret.Success(userService.login(user));
+    }
 
 }

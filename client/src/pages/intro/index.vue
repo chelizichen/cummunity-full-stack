@@ -173,7 +173,7 @@
       </div>
     </div>
   </div>
-  <div class="contact">
+  <div class="contact" id="contact-link">
     <div class="contact-title">联系方式</div>
     <div class="contact-split"></div>
     <div class="contact-intro">
@@ -187,7 +187,7 @@ import bg1 from "/bg/bg1.png";
 import bg2 from "/bg/bg2.png";
 import bg3 from "/bg/bg3.png";
 import { DocumentAdd, Lightning, Phone, Sunny, Key, List } from "@element-plus/icons-vue";
-
+import Footer from '../../components/footer/index.vue'
 
 </script>
 

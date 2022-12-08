@@ -14,4 +14,5 @@ public interface UserMapper {
     Integer updateUser(User user);
     Integer addUser(User user);
     Integer del(@Param("id") String id);
+    List<User> login(User user);
 }

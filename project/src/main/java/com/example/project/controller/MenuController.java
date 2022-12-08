@@ -28,12 +28,12 @@ public class MenuController {
 
     @GetMapping("del")
     public Ret delMenu(@RequestParam("id")String id){
-        return null;
+        return Ret.Success(menuService.delMenuById(id));
     }
 
     @PostMapping ("update")
-    public Ret updateMenu(Menu menu){
-        return null;
+    public Ret updateMenu(@RequestBody  Menu menu){
+        return Ret.Success(menuService.updateMenu(menu));
     }
 
     @GetMapping("router")

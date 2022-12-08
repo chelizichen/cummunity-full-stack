@@ -21,9 +21,15 @@ public class CarPortController {
     CarPortService carPortService;
 
     // 管理员处理预约功能
-    @GetMapping("deal_bespeak")
-    public Ret delBespeak(){
-        return null;
+    @PostMapping("deal_bespeak")
+    public Ret delBespeak(@RequestBody CarPort carPort){
+        return Ret.Success( carPortService.dealBespeak(carPort));
+    }
+
+    // 管理员拿到预约的列表
+    @GetMapping("list_bespeak")
+    public Ret listBespeak(@RequestParam("id")String id){
+        return Ret.Success(carPortService.listBespeak(id));
     }
 
     // 修改停车位数据

@@ -42,3 +42,24 @@ export function updateBespeak(data: update_car_port) {
     data,
   });
 }
+
+
+export function dealBespeak(data: {
+  id: string;
+  portIsOpen: string;
+}) {
+  return request({
+    url: "carport/deal_bespeak",
+    method: "post",
+    data,
+  });
+}
+
+
+export function list_bespeak(params: QueryId) {
+  return request({
+    url: "carport/list_bespeak",
+    method: "get",
+    params,
+  });
+}

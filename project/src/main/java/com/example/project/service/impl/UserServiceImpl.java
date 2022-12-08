@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> login(User user) {
+        return userMapper.login(user);
+    }
+
+    @Override
     public User getOne(String id){
         return userMapper.getOne(id);
     }

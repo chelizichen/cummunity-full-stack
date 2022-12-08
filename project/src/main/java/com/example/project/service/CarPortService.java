@@ -12,4 +12,7 @@ public interface CarPortService {
     Integer updateBespeak(CarPort carPort);
     Integer updateCarPort(CarPort carPort);
     Integer delOneById(String id);
+    Integer dealBespeak(CarPort carPort);
+    List<CarPort> listBespeak(String portCommunityId);
+
 }
