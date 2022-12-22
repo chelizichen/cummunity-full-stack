@@ -10,7 +10,7 @@
         </el-icon>
         <span>{{item.name}}</span>
       </template>
-      <el-menu-item v-for="child in item.children" :index="child.path">{{ child.name}}</el-menu-item>
+      <el-menu-item v-for="child in item.children" :index="item.path+'/'+child.path">{{ child.name}}</el-menu-item>
     </el-sub-menu>
   </el-menu>
 
@@ -33,17 +33,11 @@ const router = useRouter()
 const menuStore = useMenuStore()
 const Items = computed(() => menuStore.menu)
 
-console.log('item',Items.value);
-
-
 const handleSelect = (key: string, keyPath: string[]) => {
   if (key != "-1") {
-    console.log(keyPath);
-    const path = keyPath[0] + '/' + keyPath[1]
-    router.push(path)
-
+    router.push(key)
   } else {
-    router.replace("/home")
+    router.push("/home")
   }
 }
 

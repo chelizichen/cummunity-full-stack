@@ -40,13 +40,23 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: "registry",
-        component:()=>import("@/pages/registry/index.vue")
-      }
+        component: () => import("@/pages/registry/index.vue"),
+      },
+      {
+        path: "case",
+        component: () => import("@/pages/case/index.vue"),
+      },
     ],
   },
   {
     path: "/owner",
     component: () => import("@/pages/owner/index.vue"),
+    children: [
+      {
+        path: "server",
+        component: () => import("@/pages/owner/server/index.vue"),
+      },
+    ],
   },
   {
     path: "/admin",

@@ -10,9 +10,8 @@
         <el-menu-item index="/owner">用户</el-menu-item>
         <el-menu-item index="/admin">管理员</el-menu-item>
         <el-menu-item index="/home/login">登陆</el-menu-item>
-        <el-menu-item index="4">案例</el-menu-item>
+        <el-menu-item index="/home/case">案例</el-menu-item>
         <el-menu-item @click="toLink">联系我们</el-menu-item>
-        <el-menu-item index="6">应用截图</el-menu-item>
     </el-menu>
   </el-header>
 </template>

@@ -1,5 +1,5 @@
 import { Pagination, QueryId } from "../type/common";
-import { servant__table } from "../type/servant";
+import { add_servant, servant__table, update_servant } from "../type/servant";
 import request from "../utils/request";
 
 export function list(params:Pagination) {
@@ -16,7 +16,7 @@ export function del(params: QueryId) {
   });
 }
 
-export function update(data: servant__table) {
+export function update(data: update_servant | add_servant) {
   return request({
     url: "servant/update",
     method: "post",

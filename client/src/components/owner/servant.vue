@@ -4,9 +4,10 @@
       <template #header>
         <div class="card-header">
           <span>服务列表</span>
-          <el-button class="button" text>Operation button</el-button>
+          <el-button class="button" @click="handleServer" text>申请服务</el-button>
         </div>
       </template>
+      <router-view></router-view>
       <div v-if="props.servant">
         <div v-for="item in props.servant" class="servant_item">
           <div>{{item.desc}}</div>
@@ -18,12 +19,15 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { servant__table, servant_status } from '../../type/servant';
 
 // 个人服务列表
 const props = defineProps<{
   servant:servant__table[]
 }>()
+
+const router = useRouter()
 
 function getStatus(status: string) {
   if (status == "0") {
@@ -35,8 +39,12 @@ function getStatus(status: string) {
   if (status == "2") {
     return "处理完成"
   }
-
 }
+
+function handleServer() {
+  router.push("/owner/server")
+}
+
 
 </script>
 

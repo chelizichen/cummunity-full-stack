@@ -1,14 +1,15 @@
 <template>
   <div class="bg">
-  <UserComponent></UserComponent>
-  <SerVantComponent :servant="state.servant"></SerVantComponent>
-  <CarPortComponent :port="state.port"></CarPortComponent>
+    <img :src="Logo" style="width: 80%;height:100%;margin:10px 10%" @click="toHome" />
+    <UserComponent></UserComponent>
+    <SerVantComponent :servant="state.servant"></SerVantComponent>
+    <CarPortComponent :port="state.port"></CarPortComponent>
   </div>
   
 </template>
 
 <script setup lang="ts">
-
+import Logo from '/Logo.jpeg'
 
 // 得到个人信息
 // 得到业主个人信息
@@ -22,8 +23,12 @@ import useUserInfoStore from '../../store/userInfo'
 import UserComponent from '@/components/owner/user.vue'
 import SerVantComponent from '@/components/owner/servant.vue'
 import CarPortComponent from '@/components/owner/carport.vue'
+import { useRouter } from 'vue-router';
 
-
+const router = useRouter()
+function toHome() {
+  router.push("/home")
+}
 
 const state = reactive({
   servant: null,
